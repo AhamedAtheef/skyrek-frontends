@@ -1,0 +1,42 @@
+@import "tailwindcss";
+
+/* Spinner */
+.multi-color-spinner {
+  border: 4px solid transparent;
+  border-radius: 50%;
+  border-top-color: transparent;   /* Sky Blue */
+  border-right-color: #3b82f6;     /* Blue */
+  border-bottom-color: #6366f1;    /* Indigo */
+  border-left-color: #9333ea;      /* Purple */
+  animation: spin-slow 1.5s linear infinite;
+}
+
+@keyframes spin-slow {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Global custom color variable */
+:root {
+  --color-primary: #3b82f6;
+}
+
+/* Shadows */
+.custom-shadow {
+  -webkit-box-shadow: -0.8px 0.6px 12.6px 8.3px rgba(0, 0, 0, 0.4);
+  box-shadow: -0.8px 0.6px 12.6px 8.3px rgba(0, 0, 0, 0.4);
+}
+
+.custom-shadow-blue {
+  box-shadow: 29.2px 24px 21.2px 0px rgba(51, 181, 224, 0.68);
+  -webkit-box-shadow: 29.2px 24px 21.2px 0px rgba(1, 14, 18, 0.689);
+}
+
+.shadow-custom {
+  box-shadow: 9.9px 4.6px 6.4px 1.4px rgba(52, 49, 49, 0.3);
+  -webkit-box-shadow: 9.9px 4.6px 6.4px 1.4px rgba(16, 12, 12, 0.2);
+}
