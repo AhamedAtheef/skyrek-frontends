@@ -12,9 +12,7 @@ export default function CartPage() {
 
     const toggleChecked = (productId) => {
         setCheckedItems(prev =>
-            prev.includes(productId)
-                ? prev.filter(id => id !== productId)
-                : [...prev, productId]
+            prev.includes(productId)? prev.filter(id => id !== productId): [...prev, productId]
         );
     };
 
@@ -48,7 +46,7 @@ export default function CartPage() {
                         return (
                             <div
                                 key={items.productId}
-                                className="min-w-[280px] md:min-w-[700px] w-auto h-[100px] md:h-[300px] border-b-2 pb-[12px] border-gray-200 ml-[1%] 
+                                className="min-w-[280px] w-auto  md:min-w-[700px]  h-[100px] md:h-[300px] border-b-2 pb-[12px] border-gray-200 ml-[1%] 
                                  flex justify-between items-center"
                             >
                                 {/* Left side */}

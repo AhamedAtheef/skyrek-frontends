@@ -1,5 +1,7 @@
 export default function HomePage(){
     return(
-        <div>Home</div>
+        <div className="w-full h-full ">
+            <img src="login.jpg" alt="" />
+        </div>
     )
 }

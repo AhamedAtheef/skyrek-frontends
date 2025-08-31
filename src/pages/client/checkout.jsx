@@ -50,7 +50,7 @@ export default function CheckOutPage() {
         };
     };
 
-    const total = getCheckedTotal(); // ✅ store result in a variable
+    const total = getCheckedTotal(); 
 
     async function placeOrder() {
         const token = localStorage.getItem("token");
@@ -60,7 +60,7 @@ export default function CheckOutPage() {
             return;
         }
 
-        // Build order items array
+        // Build order items 
         const selectedItems = cart
             .filter(item => checkedItems.length === 0 || checkedItems.includes(item.productId))
             .map(item => ({
