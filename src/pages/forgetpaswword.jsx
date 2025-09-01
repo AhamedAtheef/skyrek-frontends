@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import LoadingDots from "../components/loddindots";
 import axios from "axios";
 import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 export default function ForgetPassword() {
     const [email, setEmail] = useState("");       // Store email input
@@ -13,6 +14,7 @@ export default function ForgetPassword() {
     const [newpassword, setNewpassword] = useState("");
     const [confirmpassword, setConfirmpassword] = useState("");
     const [showpassword, setShowpassword] = useState(false);
+    const navigate =useNavigate();
 
     // Send OTP
     async function forgetpassword() {
@@ -70,16 +72,18 @@ export default function ForgetPassword() {
             setLoading(true);
             const res = await axios.post(
                 import.meta.env.VITE_BACKEND_URL + "/api/users/reset-password",
-                { email, newpassword },
+                { email, newpassword }
             );
+
             if (res.data.success) {
-                toast.success("Password reset successfully");
-                // redirect if needed -> window.location.href = "/login";
+                toast.success(res.data.message);
                 navigate("/login");
+            } else {
+                toast.error(res.data.message);
             }
         } catch (error) {
             console.error(error);
-            toast.error(error.response?.data?.message || "Password reset failed");
+            toast.error("Password reset failed");
         } finally {
             setLoading(false);
         }

@@ -154,8 +154,8 @@ export default function Loginpage() {
                         <h2 className="text-[16px] min-[420px]:ml-[3.5rem] min-[375px]:ml-[2rem] md:text-[18px] md:ml-[0.5rem] lg:ml-0 lg:text-[20px] text-[#343a46]">Login to your beauty account</h2>
                     </div>
                     <div className="relative">
-                        <div className="absolute left-[15rem] top-[1.25rem]  text-[#030303] text-[21px] min-[375px]:left-[18rem] min-[400px]:top-[1.25rem] min-[400px]:left-[20.5rem] md:top-[2rem]"><MdOutlineAttachEmail /></div>
-                        <div className="absolute left-[15rem] top-[4.35rem] text-[#030303] text-[21px] min-[375px]:left-[18rem] min-[400px]:left-[20.5rem] md:top-[6.5rem]"><RiLockPasswordLine /></div>
+                        <div className="absolute left-[1rem] top-[1.25rem]  text-[#030303] text-[21px] min-[375px]:left-[1rem] min-[400px]:top-[1.25rem] min-[400px]:left-[1rem] md:top-[2rem]"><MdOutlineAttachEmail /></div>
+                        <div className="absolute left-[1rem] top-[4.35rem] text-[#030303] text-[21px] min-[375px]:left-[1rem] min-[400px]:left-[1rem] md:top-[6.5rem]"><RiLockPasswordLine /></div>
                         <form
                             onSubmit={(e) => { e.preventDefault(); setIsLoding(true); login(); }}
                             className="flex  flex-col gap-[10px] md:gap-[35px] pl-[5px] pt-[10px] md:pt-[20px] relative"
@@ -164,13 +164,13 @@ export default function Loginpage() {
                                 type="email"
                                 onChange={(e) => setEmail(e.target.value)}
                                 placeholder="Email"
-                                className="w-[90%] max-w-auto md:w-[350px] h-[40px] text-[16px] md:text-[18px] px-3 border border-[#416793] rounded-[10px] text-black bg-transparent outline-none placeholder-black"
+                                className="w-[90%] max-w-auto placeholder:pl-[1.5rem] md:w-[350px] h-[40px] text-[16px] md:text-[18px] px-3 border border-[#416793] rounded-[10px] text-black bg-transparent outline-none placeholder-black/70"
                             />
                             <input
                                 type={showPassword ? "text" : "password"}
                                 onChange={(e) => setPassword(e.target.value)}
                                 placeholder="Password"
-                                className="w-[90%] max-w-auto md:w-[350px] h-[40px] text-[16px] md:text-[18px] border border-[#416793] px-3 rounded-[10px] text-black bg-transparent outline-none placeholder-black"
+                                className="w-[90%] max-w-auto placeholder:pl-[1.5rem] md:w-[350px] h-[40px] text-[16px] md:text-[18px] border border-[#416793] px-3 rounded-[10px] text-black bg-transparent outline-none placeholder-black/70"
                             />
 
                             <div className="flex flex-row justify-between items-center mr-[10%] md:mr-[20%] lg:gap-[50px] ">
@@ -255,11 +255,11 @@ export default function Loginpage() {
                         <h2 className="text-[16px] max-[325px]:ml-[23px] min-[370px]:ml-[3.5rem]  min-[420px]:ml-[5rem] md:ml-[40px] lg:ml-0 md:text-[18px] lg:text-[18px] text-[#343a46]">Create your beauty account</h2>
                     </div>
                     <div className="relative">
-                        <div className="absolute top-[2rem] right-[25px] text-[20px] md:right-[7rem] lg:right-[0.5rem]"><MdDriveFileRenameOutline /></div>
-                        <div className="absolute top-[5.75rem] right-[25px] text-[20px] md:right-[7rem] md:top-[6.25rem] lg:right-[0.5rem]"><MdDriveFileRenameOutline /></div>
-                        <div className="absolute top-[9.5rem] right-[25px] text-[20px] md:right-[7rem] md:top-[10.5rem] lg:right-[0.5rem]"><MdOutlinePhoneIphone /></div>
-                        <div className="absolute right-[25px] bottom-[9rem]  text-[#030303] text-[21px] md:right-[7rem] md:bottom-[10rem] lg:right-[0.5rem] lg:bottom-[10.25rem] "><MdOutlineAttachEmail /></div>
-                        <div className="absolute right-[25px] bottom-[5.35rem] text-[#030303] text-[21px] md:right-[7rem] md:bottom-[5.75rem] lg:right-[0.5rem] lg:bottom-[6rem]"><RiLockPasswordLine /></div>
+                        <div className="absolute top-[2rem] left-[0.5rem] min-[400px]:left-[2.5rem]  text-[20px] md:left-[2rem] lg:left-[0.5rem]"><MdDriveFileRenameOutline /></div>
+                        <div className="absolute top-[5.75rem] left-[0.5rem]  min-[400px]:left-[2.5rem]  text-[20px] md:left-[2rem] md:top-[6.25rem] lg:left-[0.5rem]"><MdDriveFileRenameOutline /></div>
+                        <div className="absolute top-[9.5rem] left-[0.5rem]  min-[400px]:left-[2.5rem]  text-[20px] md:left-[2rem] md:top-[10.5rem] lg:left-[0.5rem]"><MdOutlinePhoneIphone /></div>
+                        <div className="absolute left-[0.5rem] min-[400px]:left-[2.5rem] bottom-[9rem]  text-[#030303] text-[21px] md:left-[2rem] md:bottom-[10rem] lg:left-[0.5rem] lg:bottom-[10.25rem] "><MdOutlineAttachEmail /></div>
+                        <div className="absolute left-[0.5rem] min-[400px]:left-[2.5rem] bottom-[5.35rem] text-[#030303] text-[21px] md:left-[2rem] md:bottom-[5.75rem] lg:left-[0.5rem] lg:bottom-[6rem]"><RiLockPasswordLine /></div>
                         <form
                             onSubmit={(e) => { e.preventDefault(); setIsLoding(true); Register(); }}
                             className="flex flex-col gap-[20px] min-[420px]:ml-[2rem] md:ml-5 lg:ml-0 md:gap-[28px] pt-[20px] relative "
@@ -268,13 +268,13 @@ export default function Loginpage() {
                                 type="text"
                                 placeholder="First name"
                                 onChange={(e) => setFname(e.target.value)}
-                                className="w-[95%] md:w-[350px] h-[40px] text-[16px] md:text-[18px] px-3 border border-[#416793] rounded-[10px] text-black bg-transparent outline-none placeholder-black"
+                                className="w-[95%] placeholder:pl-[1rem] min-[400px]:placeholder:pl-[1.25rem] md:w-[350px] h-[40px] text-[16px] md:text-[18px] px-3 border border-[#416793] rounded-[10px] text-black bg-transparent outline-none placeholder-black/70"
                             />
                             <input
                                 type="text"
                                 placeholder="Last name"
                                 onChange={(e) => setLname(e.target.value)}
-                                className="w-[95%] md:w-[350px] h-[40px] text-[16px] md:text-[18px] px-3 border border-[#416793] rounded-[10px] text-black bg-transparent outline-none placeholder-black"
+                                className="w-[95%] placeholder:pl-[1rem] min-[400px]:placeholder:pl-[1.25rem] md:w-[350px] h-[40px] text-[16px] md:text-[18px] px-3 border border-[#416793] rounded-[10px] text-black bg-transparent outline-none placeholder-black/70"
                             />
                             <input
                                 type="text"
@@ -284,23 +284,23 @@ export default function Loginpage() {
                                 onChange={(e) => setNumber(e.target.value)}
                                 placeholder="Phone number"
                                 onKeyPress={(e) => { if (!/[0-9]/.test(e.key)) e.preventDefault(); }}
-                                className="w-[95%] md:w-[350px] h-[40px] text-[16px] md:text-[18px] px-3 border border-[#416793] rounded-[10px] text-black bg-transparent outline-none placeholder-black"
+                                className="w-[95%] placeholder:pl-[1rem] min-[400px]:placeholder:pl-[1.25rem] md:w-[350px] h-[40px] text-[16px] md:text-[18px] px-3 border border-[#416793] rounded-[10px] text-black bg-transparent outline-none placeholder-black/70"
                             />
                             <input
                                 type="email"
                                 placeholder="Email"
                                 onChange={(e) => setFemail(e.target.value)}
-                                className="w-[95%] md:w-[350px] h-[40px] text-[16px] md:text-[18px] px-3 border border-[#416793] rounded-[10px] text-black bg-transparent outline-none placeholder-black"
+                                className="w-[95%] placeholder:pl-[1.25rem] min-[400px]:placeholder:pl-[1.5rem] md:w-[350px] h-[40px] text-[16px] md:text-[18px] px-3 border border-[#416793] rounded-[10px] text-black bg-transparent outline-none placeholder-black/70"
                             />
                             <input
                                 type="text"
                                 placeholder="Password"
                                 onChange={(e) => setFPassword(e.target.value)}
-                                className="w-[95%] md:w-[350px] h-[40px] text-[16px] md:text-[18px] px-3 border border-[#416793] rounded-[10px] text-black bg-transparent outline-none placeholder-black"
+                                className="w-[95%] placeholder:pl-[1.25rem] min-[400px]:placeholder:pl-[1.5rem] md:w-[350px] h-[40px] text-[16px] md:text-[18px] px-3 border border-[#416793] rounded-[10px] text-black bg-transparent outline-none placeholder-black/70"
                             />
                             <button
                                 type="submit"
-                                className="w-[95%] md:w-[350px] h-[40px] lg:h-[45px] rounded-[10px] text-white font-semibold bg-gradient-to-r from-blue-600 to-cyan-400 hover:opacity-80 transition duration-300 cursor-pointer text-lg md:text-[22px] mt-[15px]"
+                                className="w-[95%]  md:w-[350px] h-[40px] lg:h-[45px] rounded-[10px] text-white font-semibold bg-gradient-to-r from-blue-600 to-cyan-400 hover:opacity-80 transition duration-300 cursor-pointer text-lg md:text-[22px] mt-[15px]"
                             >
                                 {isLoding ? <LoadingDots /> : "Submit"}
                             </button>
