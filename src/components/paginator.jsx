@@ -1,7 +1,5 @@
 export default function Paginator(props) {
     const { currentPage, totalPages, setCurrentPage, limit, setLimit, setLoading } = props;//deconstracting a json
-    console.log(currentPage, totalPages, setCurrentPage, limit, setLimit, setLoading);
-
     // Make sure there is at least 1 option
     const pagesCount = totalPages > 0 ? totalPages : 1;
 

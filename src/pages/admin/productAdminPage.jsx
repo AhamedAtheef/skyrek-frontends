@@ -22,7 +22,7 @@ export default function ProductsAdminPage() {
         { headers: { Authorization: `Bearer ${localStorage.getItem("token")}` } }).then((res) => {
         setProducts(res.data.products);
         setTotalPages(res.data.totalPages);
-        console.log(res.data.products);
+        console.log(res.data);
         setLoading(false);
       })
         .catch((error) => {
