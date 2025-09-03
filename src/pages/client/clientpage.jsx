@@ -8,6 +8,7 @@ import CheckOutPage from "./checkout";
 import HomeBtn from "../../components/homebtn";
 import CatagorieOverview from "./categorieoverview";
 import Reviews from "./reviewspage";
+import About from "./about";
 
 
 export function Clientpage() {
@@ -16,9 +17,9 @@ export function Clientpage() {
             <Header/>
             <div className="w-full h-full">
             <Routes>
-                <Route path="/" element={<HomePage/>}/>
+                <Route path="/home" element={<HomePage/>}/>
                 <Route path="/products" element={<ProductPage/>}/>
-                <Route path="/about" element={<h1>about</h1>}/>
+                <Route path="/about" element={<About/>}/>
                 <Route path="/contact" element={<h1>contact</h1>}/>
                 <Route path="/overview/:productId" element={<ProductOverview/>}/>
                 <Route path="/categorieoverview/:productId" element={<CatagorieOverview/>}/>

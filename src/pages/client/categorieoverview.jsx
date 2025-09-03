@@ -15,7 +15,7 @@ export default function CatagorieOverview() {
     useEffect(() => {
         if (status === "loading") {
             axios
-                .get(`${import.meta.env.VITE_BACKEND_URL}/api/products/info/${productId}`)
+                .get(`${import.meta.env.VITE_BACKEND_URL}/api/products/overview/${productId}`)
                 .then((res) => {
                     setProduct(res.data);
                     setStatus("success");
@@ -28,7 +28,7 @@ export default function CatagorieOverview() {
     }, [status, productId]);
 
     return (
-        <div className="w-full md:ml-[10px] lg:ml-[12px] xl:ml-0 min-h-full bg-[#eee6e6] flex flex-col items-center ">
+        <div className="w-full md:ml-[10px] lg:ml-[12px] xl:ml-0 min-h-full bg-[#eee6e6] flex flex-col items-center " >
 
             {/* Loading */}
             {status == "loading" && <BarLoader />}
