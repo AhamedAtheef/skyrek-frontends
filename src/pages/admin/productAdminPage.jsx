@@ -18,7 +18,7 @@ export default function ProductsAdminPage() {
   const limit=10;
   useEffect(() => {
     if (loading) {
-      axios.get(import.meta.env.VITE_BACKEND_URL + "/api/products/" + page + "/" + limit, 
+      axios.get(import.meta.env.VITE_BACKEND_URL + "/api/products/allproducts/" + page + "/" + limit, 
         { headers: { Authorization: `Bearer ${localStorage.getItem("token")}` } }).then((res) => {
         setProducts(res.data.products);
         setTotalPages(res.data.totalPages);

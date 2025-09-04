@@ -1,13 +1,28 @@
 @import "tailwindcss";
 
+#hometext {
+  font-family: "Kurale", serif;
+  font-weight: 400;
+  font-size: 3rem;
+}
+
+#premiumtext {
+  font-family: "Kurale", serif;
+  font-weight: 400;
+}
+
 /* Spinner */
 .multi-color-spinner {
   border: 4px solid transparent;
   border-radius: 50%;
-  border-top-color: transparent;   /* Sky Blue */
-  border-right-color: #3b82f6;     /* Blue */
-  border-bottom-color: #6366f1;    /* Indigo */
-  border-left-color: #9333ea;      /* Purple */
+  border-top-color: transparent;
+  /* Sky Blue */
+  border-right-color: #3b82f6;
+  /* Blue */
+  border-bottom-color: #6366f1;
+  /* Indigo */
+  border-left-color: #9333ea;
+  /* Purple */
   animation: spin-slow 1.5s linear infinite;
 }
 
@@ -15,6 +30,7 @@
   0% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(360deg);
   }
@@ -39,4 +55,179 @@
 .shadow-custom {
   box-shadow: 9.9px 4.6px 6.4px 1.4px rgba(52, 49, 49, 0.3);
   -webkit-box-shadow: 9.9px 4.6px 6.4px 1.4px rgba(16, 12, 12, 0.2);
+}
+
+@keyframes slide-and-shimmer {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+    background-position: -200% 0;
+  }
+
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+    background-position: 200% 0;
+  }
+}
+
+.animate-slide-shimmer {
+  /* Gradient colors */
+  background: linear-gradient(90deg,
+      #f8f3d4 0%,
+      #dfdabe 25%,
+      #f0da98 50%,
+      #dac485 75%,
+      #ebaa61 100%);
+  background-size: 200% auto;
+
+  /* Clip gradient to text */
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+
+  /* Animation: slide + gradient shimmer, one-time */
+  animation: slide-and-shimmer 2s ease-out forwards;
+}
+
+@keyframes slide-and-shimmer {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+    background-position: -200% 0;
+  }
+
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+    background-position: 200% 0;
+  }
+}
+
+.slide-shimmer {
+  display: inline-block;
+  /* White text */
+  background-size: 200% 100%;
+  animation: slide-and-shimmer 2s ease forwards;
+  /* slide + shimmer */
+  overflow: hidden;
+  padding: 0;
+  /* Remove all padding */
+  margin-left: 15px;
+  /* Remove margin if any */
+}
+
+
+
+@keyframes typewriter-blink {
+  0% {
+    width: 0;
+    border-right-color: #f8f3d4;
+  }
+
+  /* Start typing */
+  40% {
+    width: 100%;
+    border-right-color: #f8f3d4;
+  }
+
+  /* Finish typing */
+  50% {
+    width: 100%;
+    border-right-color: transparent;
+  }
+
+  /* Blink off */
+  60% {
+    width: 100%;
+    border-right-color: #f8f3d4;
+  }
+
+  /* Blink on */
+  70% {
+    width: 100%;
+    border-right-color: transparent;
+  }
+
+  /* Blink off */
+  80% {
+    width: 100%;
+    border-right-color: #f8f3d4;
+  }
+
+  /* Blink on (pause) */
+  90% {
+    width: 0;
+    border-right-color: #f8f3d4;
+  }
+
+  /* Delete text */
+  100% {
+    width: 0;
+    border-right-color: transparent;
+  }
+
+  /* Pause before restart */
+}
+
+.typewriter {
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 2px solid #f8f3d4;
+  display: inline-block;
+  width: 0;
+  animation: typewriter-blink 10s steps(30, end) infinite;
+}
+
+/* sm img */
+@keyframes fadeSlideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-slide-up {
+  animation: fadeSlideUp 1s ease-out forwards;
+}
+
+/* Optional: staggered effect */
+.flex-wrap img:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.flex-wrap img:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.flex-wrap img:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+.flex-wrap img:nth-child(4) {
+  animation-delay: 0.6s;
+}
+
+/* xl img */
+@keyframes slide {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.slide-animation {
+  animation: slide 15s linear infinite;
+}
+
+.slide-animation:hover {
+  animation-play-state: paused;
 }

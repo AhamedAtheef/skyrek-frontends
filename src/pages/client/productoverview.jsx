@@ -12,16 +12,16 @@ export default function ProductOverview() {
     const [categories, setCategories] = useState([]);
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
-    const { productId } = useParams();
+    const { productId } = useParams(); 
     const [status, setStatus] = useState("loading"); // loading, success, error
 
     // ✅ fetch single product
     useEffect(() => {
         if (status === "loading") {
-            axios
-                .get(`${import.meta.env.VITE_BACKEND_URL}/api/products/info/${productId}`)
+            axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/products/overview/${productId}`)
                 .then((res) => {
                     setProduct(res.data);
+                    console.log(res.data);
                     setStatus("success");
                 })
                 .catch(() => {
@@ -32,7 +32,7 @@ export default function ProductOverview() {
     }, [status, productId]);
 
     // ✅ fetch related all products ()
-    // ✅ fetch related products only after product is loaded
+    // ✅ 
     useEffect(() => {
         if (!product) return; // wait until product is set
         setLoading(true);
@@ -52,7 +52,7 @@ export default function ProductOverview() {
 
 
     return (
-        <div className="w-full md:ml-[10px] lg:ml-[12px] xl:ml-0 h-auto bg-[#eee6e6] flex flex-col items-center ">
+        <div className="w-full md:ml-[10px] lg:ml-[12px] xl:ml-0 h-auto bg-[#f8eee3ea] flex flex-col items-center ">
 
             {/* Loading */}
             {status == "loading" && <BarLoader />}
@@ -88,13 +88,15 @@ export default function ProductOverview() {
                                 <div className="flex items-center justify-between mt-2 mr-[5px] ">
                                     {/* price */}
                                     <p className="text-[20px] md:text-3xl font-extrabold text-black">
-                                        LKR {product.price.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                                        LKR {Number(product?.price || 0).toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                                     </p>
+
                                     {/* labelled Price */}
                                     <p className="text-[16px] md:text-2xl text-gray-500 line-through">
-                                        LKR {product.labelledPrice.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                                        LKR {Number(product?.labelledPrice || 0).toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                                     </p>
                                 </div>
+
                             </div>
 
                             {/* Buy + Add to Cart */}
@@ -135,7 +137,7 @@ export default function ProductOverview() {
                     <BarLoader />
                 ) : (
                     <div
-                        className="w-full h-full flex flex-wrap justify-start items-start 
+                        className="w-full h-full flex bg-[#f8eee3ea] flex-wrap justify-start items-start 
           gap-10 px-[80px] pt-[40px] pb-[40px]
           min-[1440px]:gap-8 min-[1440px]:px-[60px] min-[1440px]:pl-[7rem]      
           min-[1500px]:gap-8 min-[1500px]:px-[60px] min-[1500px]:pl-[10rem]      
@@ -147,9 +149,9 @@ export default function ProductOverview() {
           lg:ml-[20px] xl:ml-0 "
                     >
 
-                        {categories.map((category, index) => (
-                            <CategorieCard key={index} product={category} />
-                        ))}
+                        {categories.map((category,key) => {
+                           return <CategorieCard  key = {key} product={category} />
+                        })}
                     </div>
                 )}
             </div>

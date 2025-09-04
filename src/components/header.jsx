@@ -14,7 +14,7 @@ import { CgProfile } from "react-icons/cg";
 
 export default function Header() {
   const navigate = useNavigate();
-  const location = useLocation();   
+  const location = useLocation();
   const [isloggedIn, setIsLoggedIn] = useState(false);
   const [sideNav, setSideNav] = useState(false);
 
@@ -30,10 +30,14 @@ export default function Header() {
   return (
     <header
       className={`w-full h-[70px] md:h-[78px] fixed top-0 z-50
-  ${location.pathname === "/" 
-    ? "bg-white/20 backdrop-blur-md shadow-[0_4px_20px_rgba(0,0,0,0.5)]" 
-    : "bg-[#120c61] shadow-[0_4px_20px_rgba(0,0,0,0.5)]"}`}
+    ${location.pathname === "/user/home"
+          ? "bg-[#000000b6] shadow-[0_4px_20px_rgba(0,0,0,0.5)]"
+          : location.pathname === "/user/about" || location.pathname === "/user/contact"
+            ? "bg-black/70 backdrop-blur-md shadow-[0_4px_20px_rgba(0,0,0,0.5)]"
+            : "bg-[#120c61] shadow-[0_4px_20px_rgba(0,0,0,0.5)]"
+        }`}
     >
+
       <div className="w-full h-full flex justify-between items-center px-4 sm:px-6 md:px-8">
         {/* popup */}
         {sideNav && (
@@ -48,8 +52,8 @@ export default function Header() {
                 onClick={() => setSideNav(false)}
               />
             </div>
-            <nav className="flex flex-col justify-center gap-[20px]  text-[#fffdfd] font-medium mt-[5%] ml-[10px]">
-              <Link to={"/"} onClick={() => setSideNav(false)} className="text-[18px] text-[#120c61] flex flex-row items-center gap-[5px]"> <IoIosHome /> Home</Link>
+            <nav className="flex flex-col justify-center gap-[20px]  text-[#eed4cf] font-medium mt-[5%] ml-[10px]">
+              <Link to={"/user/home"} onClick={() => setSideNav(false)} className="text-[18px] text-[#120c61] flex flex-row items-center gap-[5px]"> <IoIosHome /> Home</Link>
               <Link to={"/user/products"} onClick={() => setSideNav(false)} className="text-[18px] text-[#120c61] flex flex-row items-center gap-[5px] "> <FaBoxOpen />Products</Link>
               <Link to={"/user/about"} onClick={() => setSideNav(false)} className="text-[18px] text-[#120c61] flex flex-row items-center gap-[5px]"> <IoChatboxEllipses /> About Us</Link>
               <Link to={"/user/reviews"} onClick={() => setSideNav(false)} className="text-[18px] text-[#120c61] flex flex-row items-center gap-[5px]"> <MdReviews /> Reviews</Link>
@@ -89,12 +93,12 @@ export default function Header() {
         <div className=" w-full text-2xl sm:text-3xl font-bold flex items-center justify-between text-white tracking-wider">
           <FiList className="lg:hidden text-2xl cursor-pointer transform transition duration-300 ease-in-out hover:scale-225 hover:text-blue-500"
             onClick={() => setSideNav(true)} />
-          <img src="/CBC.png" alt="" className="w-[100px] h-[98px] hover:cursor-pointer" onClick={() => navigate("/")} />
+          <img src="/CBC.png" alt="" className="w-[100px] h-[98px] hover:cursor-pointer" onClick={() => navigate("/user/home")} />
         </div>
 
         {/* Nav Links (hidden on mobile, show from md) */}
         <nav className="hidden lg:flex gap-[20px] text-[#fffdfd] font-medium mr-[12rem] xl:mr-[25rem] 2xl:mr-[38rem] 2xl:gap-[30px]">
-          <Link to={"/"} className="text-[18px] lg:text-[22px] pb-1 border-b-2 border-transparent hover:border-[#60d2d6] hover:text-[#97ebeb] transition-colors duration-300">Home</Link>
+          <Link to={"/user/home"} className="text-[18px] lg:text-[22px] pb-1 border-b-2 border-transparent hover:border-[#60d2d6] hover:text-[#97ebeb] transition-colors duration-300">Home</Link>
           <Link to={"/user/products"} className="text-[18px] lg:text-[22px] pb-1 border-b-2 border-transparent hover:border-[#60d2d6] hover:text-[#97ebeb] transition-colors duration-300">Products</Link>
           <Link to={"/user/about"} className="text-[18px] lg:text-[22px] pb-1 border-b-2 border-transparent hover:border-[#60d2d6] hover:text-[#97ebeb] transition-colors duration-300">AboutUs</Link>
           <Link to={"/user/reviews"} className="text-[18px] lg:text-[22px] pb-1 border-b-2 border-transparent hover:border-[#60d2d6] hover:text-[#97ebeb] transition-colors duration-300">Reviews</Link>

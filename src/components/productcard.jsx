@@ -5,7 +5,7 @@ export default function ProductCard(props) {
   return (
     <Link
       to={"/user/overview/" + product.productId}
-      className="group w-[22%] h-[400px] mt-[10px] rounded-xl overflow-hidden shadow-md border border-gray-200 bg-white hover:shadow-2xl transition-all duration-300
+      className="group w-[22%] h-[400px] mt-[10px] rounded-xl overflow-hidden shadow-md border cursor-pointer border-gray-200 bg-white hover:shadow-2xl transition-all duration-300
          max-[435px]:mt-[30px] max-[435px]:bg-transparent max-[435px]:border-0 max-[435px]:shadow-none max-[435px]:hover:shadow-2xl
          max-[435px]:w-[calc(50%-7px)] max-[435px]:h-[250px] max-[435px]:rounded-none
          sm:w-[calc(33%-16px)] md:w-[29%] md:ml-[10px] md:h-[320px] lg:w-[28%] lg:h-[350px] lg:ml-[20px] xl:h-[360px] xl:w-[20%]"

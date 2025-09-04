@@ -11,28 +11,30 @@ export default function ProductPage() {
   const [productname, setProductname] = useState("");
   useEffect(() => {
     if (loading) {
-      if(productname === ""){
-        axios.get(import.meta.env.VITE_BACKEND_URL + "/api/products").then((res) => {
-          console.log(res.data);
-          setProducts(res.data.products);
-          setLoading(false);
-        });
+      if (productname === "") {
+        axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/products/allproducts/1/1000`)
+          .then((res) => {
+            setProducts(res.data.products);
+            console.log(res.data);
+            setLoading(false);
+          });
+
       }
-      else{
-        axios.get(import.meta.env.VITE_BACKEND_URL + "/api/products/search/"+productname).then((res) => {
+      else {
+        axios.get(import.meta.env.VITE_BACKEND_URL + "/api/products/search/" + productname).then((res) => {
           console.log(res.data);
           setProducts(res.data.products);
           setLoading(false);
         });
       }
     };
-  }, [loading,productname]);
+  }, [loading, productname]);
   return (
-    <div className="w-full  bg-[#f8f8f8] mt-[60px] xl:mt-[80px] pt-[20px] ">
+    <div className="w-full  bg-[#f8eee3ea] mt-[60px] xl:mt-[80px] pt-[20px] ">
       <div className="xl:w-full px-[3px] h-[30px] xl:h-[40px] flex md:justify-center mt-[10px] ">
         <div className="relative max-[435px]:w-[100%] ">
           <input type="text" className="text-[15px] md:text-[16px] border-2 lg:border-0 w-[100%] md:w-[400px] h-[100%] lg:w-[500px] lg:h-[35px] xl:w-[600px]  lg:bg-[#f0ede5]  focus:outline-none rounded-2xl px-[10px] xl:placeholder:text-[18px] placeholder:text-[16px] "
-            placeholder="Search Products" onChange={(e) => {setProductname(e.target.value);setLoading(true);}} />
+            placeholder="Search Products" onChange={(e) => { setProductname(e.target.value); setLoading(true); }} />
           <IoIosSearch className="absolute top-[4px] right-[10px] text-[24px] lg:top-[5px] cursor-pointer" />
         </div>
       </div>
