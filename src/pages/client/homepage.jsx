@@ -79,10 +79,10 @@ export default function HomePage() {
                     Our <span className="text-[#b37f31] md:text-4xl lg:text-5xl" id="premiumtext">Premium</span> Collections
                 </h1>
                 <div className="flex flex-wrap gap-[0.5rem] pl-[0.25rem] min-[370px]:justify-around min-[370px]:px-[1rem] md:gap-[1rem]">
-                    <img onClick={() => setSelectedImg("/CBC1.jpg")} src="/CBC1.jpg" alt="" className="xl:hidden w-[150px] min-[370px]:w-[160px] md:w-[320px] lg:w-[460px]  h-[150px] md:h-[300px] cursor-pointer  rounded-3xl fade-slide-up" />
-                    <img onClick={() => setSelectedImg("/CBC2.jpg")} src="/CBC2.jpg" alt="" className="xl:hidden w-[150px] min-[370px]:w-[160px] md:w-[320px] lg:w-[460px]  h-[150px] md:h-[300px] cursor-pointer  rounded-3xl fade-slide-up" />
-                    <img onClick={() => setSelectedImg("/CBC4.jpg")} src="/CBC4.jpg" alt="" className="xl:hidden w-[150px] min-[370px]:w-[160px] md:w-[320px] lg:w-[460px]  h-[150px] md:h-[300px] cursor-pointer  rounded-3xl fade-slide-up" />
-                    <img onClick={() => setSelectedImg("/CBC5.jpg")} src="/CBC5.jpg" alt="" className="xl:hidden w-[150px] min-[370px]:w-[160px] md:w-[320px] lg:w-[460px]  h-[150px] md:h-[300px] cursor-pointer  rounded-3xl fade-slide-up" />
+                    <img onClick={() => setSelectedImg("/CBC1.jpg")} src="/CBC1.jpg" alt="" className="xl:hidden w-[150px] min-[370px]:w-[160px] md:w-[320px] lg:w-[460px]  h-[150px] md:h-[280px] cursor-pointer  rounded-3xl fade-slide-up" />
+                    <img onClick={() => setSelectedImg("/CBC2.jpg")} src="/CBC2.jpg" alt="" className="xl:hidden w-[150px] min-[370px]:w-[160px] md:w-[320px] lg:w-[460px]  h-[150px] md:h-[280px] cursor-pointer  rounded-3xl fade-slide-up" />
+                    <img onClick={() => setSelectedImg("/CBC4.jpg")} src="/CBC4.jpg" alt="" className="xl:hidden w-[150px] min-[370px]:w-[160px] md:w-[320px] lg:w-[460px]  h-[150px] md:h-[280px] cursor-pointer  rounded-3xl fade-slide-up" />
+                    <img onClick={() => setSelectedImg("/CBC5.jpg")} src="/CBC5.jpg" alt="" className="xl:hidden w-[150px] min-[370px]:w-[160px] md:w-[320px] lg:w-[460px]  h-[150px] md:h-[280px] cursor-pointer  rounded-3xl fade-slide-up" />
 
                     {/* xl section */}
                     <div className="overflow-hidden w-full hidden xl:block">
@@ -141,7 +141,7 @@ export default function HomePage() {
             {/* About */}
             <div className="w-full min-h-0 h-auto flex flex-col pt-[1rem] pb-[1rem] md:flex-row md:px-[3rem] md:py-[4rem] justify-center items-center xl:items-start bg-white relative" id="about">
                 <div className="hidden w-full h-full  md:flex justify-center ">
-                    <img src="/about.png" alt="" className="object-cover h-[280px] w-[380px] lg:h-[320px] lg:w-[480px] xl:h-[420px] xl:w-[580px] rounded-bl-4xl rounded-tr-4xl lg:rounded-bl-[3.75rem] lg:rounded-tr-[3.75rem]" />
+                    <img src="/about.png" alt="" className="object-cover h-[280px] w-[380px] lg:h-[320px] lg:w-[480px] xl:h-[420px] xl:w-[580px] rounded-bl-4xl rounded-tr-4xl lg:rounded-bl-[3.75rem] lg:rounded-tr-[3.75rem] animate-slideUp " />
                 </div>
                 {/* intro */}
                 <div className="text-center px-[1rem] w-full h-full flex flex-col justify-center items-center xl:mb-[5rem] ">
