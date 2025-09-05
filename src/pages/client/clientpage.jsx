@@ -9,6 +9,7 @@ import HomeBtn from "../../components/homebtn";
 import CatagorieOverview from "./categorieoverview";
 import Reviews from "./reviewspage";
 import About from "./about";
+import Contact from "./contact";
 
 
 export function Clientpage() {
@@ -20,7 +21,7 @@ export function Clientpage() {
                 <Route path="/home" element={<HomePage/>}/>
                 <Route path="/products" element={<ProductPage/>}/>
                 <Route path="/about" element={<About/>}/>
-                <Route path="/contact" element={<h1>contact</h1>}/>
+                <Route path="/contact" element={<Contact/>}/>
                 <Route path="/overview/:productId" element={<ProductOverview/>}/>
                 <Route path="/categorieoverview/:productId" element={<CatagorieOverview/>}/>
                 <Route path="/cart" element={<CartPage/>}/>

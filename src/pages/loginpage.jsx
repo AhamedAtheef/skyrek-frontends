@@ -159,17 +159,20 @@ export default function Loginpage() {
                         <form
                             onSubmit={(e) => { e.preventDefault(); setIsLoding(true); login(); }}
                             className="flex  flex-col gap-[10px] md:gap-[35px] pl-[5px] pt-[10px] md:pt-[20px] relative"
+                            
                         >
                             <input
                                 type="email"
                                 onChange={(e) => setEmail(e.target.value)}
                                 placeholder="Email"
+                                required
                                 className="w-[90%] max-w-auto  md:w-[350px] h-[40px] text-[16px] md:text-[18px] px-3 border border-[#f0b400] rounded-[10px] text-amber-100 bg-transparent outline-none pl-[2.5rem] placeholder-amber-100"
                             />
                             <input
                                 type={showPassword ? "text" : "password"}
                                 onChange={(e) => setPassword(e.target.value)}
                                 placeholder="Password"
+                                required
                                 className="w-[90%] max-w-auto  md:w-[350px] h-[40px] text-[16px] md:text-[18px] border border-[#f0b400] px-3 rounded-[10px] text-amber-100 bg-transparent outline-none pl-[2.5rem] placeholder-amber-100"
                             />
 
@@ -267,12 +270,14 @@ export default function Loginpage() {
                             <input
                                 type="text"
                                 placeholder="First name"
+                                required
                                 onChange={(e) => setFname(e.target.value)}
                                 className="w-[95%] pl-[1.75rem] min-[400px]:pl-[2.5rem] md:w-[350px] h-[40px] text-[16px] md:text-[18px] px-3 border border-[#f0b400] rounded-[10px] text-amber-100 bg-transparent outline-none placeholder-amber-100"
                             />
                             <input
                                 type="text"
                                 placeholder="Last name"
+                                required
                                 onChange={(e) => setLname(e.target.value)}
                                 className="w-[95%] pl-[1.75rem] min-[400px]:pl-[2.5rem] md:w-[350px] h-[40px] text-[16px] md:text-[18px] px-3 border border-[#f0b400] rounded-[10px] text-amber-100 bg-transparent outline-none placeholder-amber-100"
                             />
@@ -289,12 +294,14 @@ export default function Loginpage() {
                             <input
                                 type="email"
                                 placeholder="Email"
+                                required
                                 onChange={(e) => setFemail(e.target.value)}
                                 className="w-[95%] pl-[2rem] min-[400px]:pl-[2.5rem] md:w-[350px] h-[40px] text-[16px] md:text-[18px] px-3 border border-[#f0b400] rounded-[10px] text-amber-100 bg-transparent outline-none placeholder-amber-100"
                             />
                             <input
                                 type="text"
                                 placeholder="Password"
+                                required
                                 onChange={(e) => setFPassword(e.target.value)}
                                 className="w-[95%] pl-[2rem] min-[400px]:pl-[2.5rem] md:w-[350px] h-[40px] text-[16px] md:text-[18px] px-3 border border-[#f0b400] rounded-[10px] text-amber-100 bg-transparent outline-none placeholder-amber-100"
                             />
