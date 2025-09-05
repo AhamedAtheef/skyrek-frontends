@@ -18,7 +18,7 @@ export default function Reviews() {
     const fetchReviews = async () => {
         setLoading(true);
         try {
-            const res = await axios.get("http://localhost:5000/api/reviews");
+            const res = await axios.get(import.meta.env.VITE_BACKEND_URL + "/api/reviews");
             setReviews(res.data || []);
         } catch (err) {
             console.error(err);
@@ -32,7 +32,7 @@ export default function Reviews() {
         e.preventDefault();
         setLoading(true);
         try {
-            await axios.post("http://localhost:5000/api/reviews", { name, email, rating, comment });
+            await axios.post(import.meta.env.VITE_BACKEND_URL + "/api/reviews", { name, email, rating, comment });
             setName(""); setEmail(""); setComment(""); setRating(5);
             toast.success("Review submitted successfully.");
             await fetchReviews(); // fetch updated reviews
