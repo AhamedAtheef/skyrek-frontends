@@ -18,6 +18,7 @@ export function Clientpage() {
             <Header/>
             <div className="w-full h-full">
             <Routes>
+                <Route path="/" element={<HomePage/>}/>
                 <Route path="/home" element={<HomePage/>}/>
                 <Route path="/products" element={<ProductPage/>}/>
                 <Route path="/about" element={<About/>}/>
