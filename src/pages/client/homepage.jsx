@@ -6,7 +6,7 @@ export default function HomePage() {
 
     return (
         <div className="w-full min-h-screen bg-[#0c0c0e] mx-auto flex flex-col overflow-hidden">
-            <div className="w-full h-[250px] md:h-[450px] xl:h-[500px] 2xl:h-[620px] mt-[4.25rem] bg-white mx-auto relative overflow-hidden">
+            <div className="w-full h-[250px] md:h-[450px] xl:h-[500px] 2xl:h-[620px] mt-[4.25rem] bg-black mx-auto relative overflow-hidden">
                 <video
                     src="/bgcover.mp4"
                     autoPlay

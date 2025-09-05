@@ -4,8 +4,6 @@ import axios from "axios";//send http req for backend
 import toast from "react-hot-toast";
 import { MdOutlineAttachEmail } from "react-icons/md";
 import { RiLockPasswordLine } from "react-icons/ri";
-import { MdDriveFileRenameOutline } from "react-icons/md";
-import { MdOutlinePhoneIphone } from "react-icons/md";
 import { FcGoogle } from "react-icons/fc";
 import LoadingDots from "../components/loddindots";
 import { useGoogleLogin } from '@react-oauth/google';
@@ -254,15 +252,10 @@ export default function Loginpage() {
                 {/* Right Panel */}
                 <div className="flex flex-col max-[325px]:pl-[8px] max-[400px]:pl-[25px] lg:items-center w-full lg:w-[40%] lg:p-4 lg:pr-[6rem]">
                     <div className="mt-[15px] ml-[20px] min-[370px]:ml-[0rem] min-[420px]:ml-[2rem] md:ml-[30px] lg:ml-0 mb-[10px] lg:mt-[30px] lg:mb-[20px] lg:text-center">
-                        <h1 className="text-[#f0b400] min-[370px]:ml-[2rem]  min-[420px]:ml-[3.5rem] md:ml-0 lg:ml-0 font-bold text-2xl md:text-3xl lg:text-[25px]">Create a new account</h1>
-                        <h2 className="text-[16px] max-[325px]:ml-[23px] min-[370px]:ml-[3.5rem]  min-[420px]:ml-[5rem] md:ml-[40px] lg:ml-0 md:text-[18px] lg:text-[18px] text-[#eaeffa]">Create your beauty account</h2>
+                        <h1 className="text-[#f0b400] min-[370px]:ml-[2rem]  min-[400px]:ml-[5rem] md:ml-0 lg:ml-0 font-bold text-2xl md:text-3xl lg:text-[25px]">Create a new account</h1>
+                        <h2 className="text-[16px] max-[325px]:ml-[23px] min-[370px]:ml-[3.5rem]  min-[400px]:ml-[6.25rem] md:ml-[40px] lg:ml-0 md:text-[18px] lg:text-[18px] text-[#eaeffa]">Create your beauty account</h2>
                     </div>
                     <div className="relative">
-                        <div className="absolute top-[2rem] left-[0.5rem] min-[400px]:left-[2.5rem] text-[#ecdede] text-[20px] md:left-[2rem] lg:left-[0.5rem]"><MdDriveFileRenameOutline /></div>
-                        <div className="absolute top-[5.75rem] left-[0.5rem]  min-[400px]:left-[2.5rem] text-[#ecdede] text-[20px] md:left-[2rem] md:top-[6.25rem] lg:left-[0.5rem]"><MdDriveFileRenameOutline /></div>
-                        <div className="absolute top-[9.5rem] left-[0.5rem]  min-[400px]:left-[2.5rem] text-[#ecdede] text-[20px] md:left-[2rem] md:top-[10.5rem] lg:left-[0.5rem]"><MdOutlinePhoneIphone /></div>
-                        <div className="absolute left-[0.5rem] min-[400px]:left-[2.5rem] bottom-[9rem]  text-[#ecdede] text-[21px] md:left-[2rem] md:bottom-[10rem] lg:left-[0.5rem] lg:bottom-[10.25rem] "><MdOutlineAttachEmail /></div>
-                        <div className="absolute left-[0.5rem] min-[400px]:left-[2.5rem] bottom-[5.35rem] text-[#e7dddd] text-[21px] md:left-[2rem] md:bottom-[5.75rem] lg:left-[0.5rem] lg:bottom-[6rem]"><RiLockPasswordLine /></div>
                         <form
                             onSubmit={(e) => { e.preventDefault(); setIsLoding(true); Register(); }}
                             className="flex flex-col gap-[20px] min-[420px]:ml-[2rem] md:ml-5 lg:ml-0 md:gap-[28px] pt-[20px] relative "
@@ -272,14 +265,14 @@ export default function Loginpage() {
                                 placeholder="First name"
                                 required
                                 onChange={(e) => setFname(e.target.value)}
-                                className="w-[95%] pl-[1.75rem] min-[400px]:pl-[2.5rem] md:w-[350px] h-[40px] text-[16px] md:text-[18px] px-3 border border-[#f0b400] rounded-[10px] text-amber-100 bg-transparent outline-none placeholder-amber-100"
+                                className="w-[95%]   md:w-[350px] h-[40px] text-[16px] md:text-[18px] px-3 border border-[#f0b400] rounded-[10px] text-amber-100 bg-transparent outline-none placeholder-amber-100"
                             />
                             <input
                                 type="text"
                                 placeholder="Last name"
                                 required
                                 onChange={(e) => setLname(e.target.value)}
-                                className="w-[95%] pl-[1.75rem] min-[400px]:pl-[2.5rem] md:w-[350px] h-[40px] text-[16px] md:text-[18px] px-3 border border-[#f0b400] rounded-[10px] text-amber-100 bg-transparent outline-none placeholder-amber-100"
+                                className="w-[95%]   md:w-[350px] h-[40px] text-[16px] md:text-[18px] px-3 border border-[#f0b400] rounded-[10px] text-amber-100 bg-transparent outline-none placeholder-amber-100"
                             />
                             <input
                                 type="text"
@@ -289,21 +282,21 @@ export default function Loginpage() {
                                 onChange={(e) => setNumber(e.target.value)}
                                 placeholder="Phone number"
                                 onKeyPress={(e) => { if (!/[0-9]/.test(e.key)) e.preventDefault(); }}
-                                className="w-[95%] pl-[1.75rem] min-[400px]:pl-[2.5rem] md:w-[350px] h-[40px] text-[16px] md:text-[18px] px-3 border border-[#f0b400] rounded-[10px] text-amber-100 bg-transparent outline-none placeholder-amber-100"
+                                className="w-[95%]  md:w-[350px] h-[40px] text-[16px] md:text-[18px] px-3 border border-[#f0b400] rounded-[10px] text-amber-100 bg-transparent outline-none placeholder-amber-100"
                             />
                             <input
                                 type="email"
                                 placeholder="Email"
                                 required
                                 onChange={(e) => setFemail(e.target.value)}
-                                className="w-[95%] pl-[2rem] min-[400px]:pl-[2.5rem] md:w-[350px] h-[40px] text-[16px] md:text-[18px] px-3 border border-[#f0b400] rounded-[10px] text-amber-100 bg-transparent outline-none placeholder-amber-100"
+                                className="w-[95%]  md:w-[350px] h-[40px] text-[16px] md:text-[18px] px-3 border border-[#f0b400] rounded-[10px] text-amber-100 bg-transparent outline-none placeholder-amber-100"
                             />
                             <input
                                 type="text"
                                 placeholder="Password"
                                 required
                                 onChange={(e) => setFPassword(e.target.value)}
-                                className="w-[95%] pl-[2rem] min-[400px]:pl-[2.5rem] md:w-[350px] h-[40px] text-[16px] md:text-[18px] px-3 border border-[#f0b400] rounded-[10px] text-amber-100 bg-transparent outline-none placeholder-amber-100"
+                                className="w-[95%]  md:w-[350px] h-[40px] text-[16px] md:text-[18px] px-3 border border-[#f0b400] rounded-[10px] text-amber-100 bg-transparent outline-none placeholder-amber-100"
                             />
                             <button
                                 type="submit"
@@ -313,7 +306,7 @@ export default function Loginpage() {
                             </button>
                         </form>
                     </div>
-                    <span className=" w-full max-[325px]:ml-[0.55rem] mt-[20px] min-[370px]:ml-[1.5rem] min-[420px]:ml-[4rem] md:ml-[2.5rem] lg:ml-0 mb-[10px] md:mb-0 text-sm md:text-[17px] lg:text-center text-[#e7e7e9]">
+                    <span className=" w-full max-[325px]:ml-[0.55rem] mt-[20px] min-[370px]:ml-[1.5rem] min-[400px]:ml-[4rem] md:ml-[2.5rem] lg:ml-0 mb-[10px] md:mb-0 text-sm md:text-[17px] lg:text-center text-[#e7e7e9]">
                         Already have an account?{" "}
                         <button className="text-blue-400 cursor-pointer" onClick={() => setShowLogin(true)}>SignIn</button> from here
                     </span>
