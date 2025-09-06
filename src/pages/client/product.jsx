@@ -30,7 +30,7 @@ export default function ProductPage() {
     };
   }, [loading, productname]);
   return (
-    <div className="w-full  bg-[#f8eee3ea] mt-[60px] xl:mt-[80px] pt-[20px] ">
+    <div className="w-full  bg-[#f8f1e98e] mt-[60px] xl:mt-[80px] pt-[20px] ">
       <div className="xl:w-full px-[3px] h-[30px] xl:h-[40px] flex md:justify-center mt-[10px] ">
         <div className="relative max-[435px]:w-[100%] ">
           <input type="text" className="text-[15px] md:text-[16px] border-2 lg:border-0 w-[100%] md:w-[400px] h-[100%] lg:w-[500px] lg:h-[35px] xl:w-[600px]  lg:bg-[#f0ede5]  focus:outline-none rounded-2xl px-[10px] xl:placeholder:text-[18px] placeholder:text-[16px] "

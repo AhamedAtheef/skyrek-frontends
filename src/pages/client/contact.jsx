@@ -53,19 +53,19 @@ export default function Contact() {
             </div>}
             <div className="w-full min-h-[200px] h-auto mt-[3rem]  flex flex-col lg:flex-row justify-center px-[1rem] lg:px-[1.5rem] lg:mt-[7rem] xl:px-[4rem] gap-[2rem] xl:gap-[4rem] py-[2rem] items-center">
                 
-                <div className="w-[80%] md:w-[70%] xl:w-[25%] py-[1rem]  min-h-[100px] h-auto rounded-[8px] text-black border border-amber-400 flex flex-col justify-center items-center">
+                <div className="w-[80%] md:w-[70%] xl:w-[25%] py-[1rem]  min-h-[100px] h-auto rounded-[8px] text-black border border-amber-400 flex flex-col justify-center items-center review-card ">
                     <div className="bg-black rounded-full p-3 text-center text-[#caad5d] text-[1.25rem]"><FaLocationDot /></div>
                     <h1 className="text-[18px] xl:text-[22px] md:mt-[0.75rem] tracking-wide text-[#8a7c4d]">Address</h1>
                     <p className="text-[17px] xl:text-[20px] tracking-wide text-gray-700">Colombo 12 main Street</p>
                 </div>
 
-                <div className="w-[80%] md:w-[70%] xl:w-[25%] py-[1rem]  min-h-[100px] h-auto rounded-[8px] text-black border border-amber-400 flex flex-col justify-center  items-center">
+                <div className="w-[80%] md:w-[70%] xl:w-[25%] py-[1rem]  min-h-[100px] h-auto rounded-[8px] text-black border border-amber-400 flex flex-col justify-center  items-center review-card ">
                     <div className="bg-black rounded-full p-3 text-center text-[#caad5d] text-[1.25rem]"><FaPhone /></div>
                     <h1 className="text-[18px] xl:text-[22px] md:mt-[0.75rem] tracking-wide text-[#8a7c4d]">Phone</h1>
                     <p className="text-[17px] xl:text-[20px] tracking-wide text-gray-700">+94 112 345 678</p>
                 </div>
 
-                <div className="w-[80%] md:w-[70%] xl:w-[25%] py-[1rem]  min-h-[100px] h-auto rounded-[8px] text-black border border-amber-400 flex flex-col justify-center items-center">
+                <div className="w-[80%] md:w-[70%] xl:w-[25%] py-[1rem]  min-h-[100px] h-auto rounded-[8px] text-black border border-amber-400 flex flex-col justify-center items-center review-card ">
                     <div className="bg-black rounded-full p-3 text-center text-[#caad5d] text-[1.50rem]"><MdAttachEmail /></div>
                     <h1 className="text-[18px] xl:text-[22px] md:mt-[0.75rem] tracking-wide text-[#8a7c4d]">Email</h1>
                     <p className="text-[17px] xl:text-[20px] tracking-wide text-gray-700">cbccosmetic12@gmail.com</p>
