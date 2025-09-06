@@ -27,8 +27,8 @@ export default function Loginpage() {
             axios.post(import.meta.env.VITE_BACKEND_URL + "/api/users/google-login", {
                 token: tokenResponse.access_token
             }).then((res) => {
-                console.log(res.data)
                 console.log("tokenResponse:", tokenResponse);
+                localStorage.setItem("token", res.data.token);
                 if (res.data.message === "Not Saved") {
                     toast.error("Failed To Create An Account")
                     setIsLoding(false)
