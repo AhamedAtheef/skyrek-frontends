@@ -34,7 +34,7 @@ export default function Header() {
           ? "bg-[#000000b6] shadow-[0_4px_20px_rgba(0,0,0,0.5)]"
           : location.pathname === "/user/about" || location.pathname === "/user/contact"
             ? "bg-black/70 backdrop-blur-md shadow-[0_4px_20px_rgba(0,0,0,0.5)]"
-            : "bg-[#120c61] shadow-[0_4px_20px_rgba(0,0,0,0.5)]"
+            : "bg-black/70 backdrop-blur-md shadow-[0_4px_20px_rgba(0,0,0,0.5)]"
         }`}
     >
 
