@@ -11,6 +11,7 @@ import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import Loading from "../components/loading";
 import axios from "axios";
+import ReviewAdminPage from "./admin/reviewadminpage";
 export default function Adminpage() {
     const [adminValidate, setAdminValidate] = useState(false);
     const navigate = useNavigate();
@@ -44,23 +45,25 @@ export default function Adminpage() {
     return (
         <div className="w-full min-h-full h-auto bg-white flex">
             {adminValidate ? <Loading /> : (<div className="w-full min-h-full h-auto bg-white flex">
-                <div className="w-[300px] min-h-full h-auto bg-[#152f22]  border-r-3 border-black text-white" >
+                <div className="w-[300px] lg:w-[250px] min-h-full h-auto bg-[#152f22]  border-r-3 border-black text-white" >
                     <h1 className="text-[25px] m-[20px] mb-[30px] font-bold text-center ">Admin Panel</h1>
                     <div className="flex flex-col ml-[30px] text-[20px] gap-[45px] text-white ">
                         <Link className="flex flex-row items-center gap-[10px]  hover:bg-white hover:text-[#152f22] hover:p-[5px] hover:rounded-lg" to="/admin/products"> <FaBoxArchive />Products</Link>
                         <Link className="flex flex-row items-center gap-[10px]  hover:bg-white hover:text-[#152f22] hover:p-[5px] hover:rounded-lg" to="/admin/orders"> <TbTruckDelivery />Orders</Link>
                         <Link className="flex flex-row items-center gap-[10px]  hover:bg-white hover:text-[#152f22] hover:p-[5px] hover:rounded-lg" to="/admin/users"> <FaUserFriends />Users</Link>
+                        <Link className="flex flex-row items-center gap-[10px]  hover:bg-white hover:text-[#152f22] hover:p-[5px] hover:rounded-lg" to="/admin/review"> <FaUserFriends />Reviews</Link>
                         <Link className="flex flex-row items-center gap-[10px]  hover:bg-white hover:text-[#152f22] hover:p-[5px] hover:rounded-lg" to="/admin/setting"> <IoSettings /> Setting</Link>
 
                     </div>
                 </div>
-                <div className="w-[calc(100%-300px)] text-xl">
+                <div className="w-[calc(100%-300px)]  text-xl">
                     <Routes>
                         <Route path="/" element={<h1>DashBoard</h1>} />
                         <Route path="/products" element={<ProductsAdminPage />} />
                         <Route path="/newproduct" element={<AddProductPage />} />
                         <Route path="/orders" element={<OrdersAdminPage />} />
                         <Route path="/update" element={<UpdateProductPage />} />
+                        <Route path="/review" element={<ReviewAdminPage />} />
                     </Routes>
                 </div>
             </div>)}

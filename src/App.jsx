@@ -20,7 +20,7 @@ function App() {
         <div className="w-full h-screen">
           <Toaster possition="top-right" />
           <Routes path="/">
-            <Route path="/" element={<Clientpage />} />
+            <Route path="*" element={<Clientpage />} />
             <Route path="/login" element={<Loginpage />} />
             <Route path="/forgotpassword" element={<ForgetPassword/>} />
             <Route path="/admin/*" element={<Adminpage />} />

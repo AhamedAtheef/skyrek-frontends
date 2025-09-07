@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import toast from "react-hot-toast";
+import BarLoader from "../../components/homeloading";
 
 export default function Reviews() {
     const [reviews, setReviews] = useState([]);
@@ -66,7 +67,7 @@ export default function Reviews() {
                     Customer Reviews
                 </h2>
 
-                <div className="w-full lg:min-w-[800px] xl:min-w-[900px] 2xl:min-w-[1800px] h-[500px] flex flex-col gap-2 lg:gap-4 lg:flex-row lg:flex-wrap overflow-y-scroll px-4 md:px-0">
+                {loading ? <BarLoader /> : <div className="w-full lg:min-w-[800px] xl:min-w-[900px] 2xl:min-w-[1800px] h-[500px] flex flex-col gap-2 lg:gap-4 lg:flex-row lg:flex-wrap overflow-y-scroll px-4 md:px-0">
                     {reviews.length === 0 && <p>No reviews yet.</p>}
                     {reviews.map((rev) => (
                         <div
@@ -81,7 +82,7 @@ export default function Reviews() {
                             {renderStars(rev.rating)}
                         </div>
                     ))}
-                </div>
+                </div>}
 
 
                 {/* Submit Review */}
@@ -103,6 +104,7 @@ export default function Reviews() {
                             type="email"
                             placeholder="Your Email"
                             value={email}
+                            required
                             onChange={(e) => setEmail(e.target.value)}
                             className="border p-2 lg:text-[20px] md:py-[0.5rem] lg:w-[35rem] 2xl:w-[40rem] lg:pl-[15px] rounded-3xl bg-[#f0cd8b8c] placeholder:text-gray-800 focus:outline-none"
                         />
