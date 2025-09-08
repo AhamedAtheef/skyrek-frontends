@@ -11,6 +11,7 @@ import { IoMdContacts } from "react-icons/io";
 import { MdReviews } from "react-icons/md";
 import { FaShoppingCart } from "react-icons/fa";
 import { CgProfile } from "react-icons/cg";
+import { TbLogout } from "react-icons/tb";
 
 export default function Header() {
   const navigate = useNavigate();
@@ -45,7 +46,7 @@ export default function Header() {
             <div className="w-full h-[70px] flex justify-between px-[5px] pt-[5px] cursor-pointer border-b-2 border-[#120c61] mb-[30px]">
               <span className="text-[#000000] flex items-center gap-[5px]  font-semibold">
                 <CgProfile className="text-3xl text-[#06899b]" />
-                <span className="text-[21px]">Profile</span>
+                <span className="text-[21px]" onClick={() => navigate("/user/profile")}>Profile</span>
               </span>
               <FaXmark
                 className="text-[#000000] text-1xl cursor-pointer"
@@ -98,24 +99,30 @@ export default function Header() {
 
         {/* Nav Links (hidden on mobile, show from md) */}
         <nav className="hidden lg:flex gap-[20px] text-[#fffdfd] font-medium mr-[12rem] xl:mr-[25rem] 2xl:mr-[38rem] 2xl:gap-[30px]">
-          <Link to={"/user/home"} className="text-[18px] lg:text-[22px] pb-1 border-b-2 border-transparent hover:border-[#60d2d6] hover:text-[#97ebeb] transition-colors duration-300">Home</Link>
-          <Link to={"/user/products"} className="text-[18px] lg:text-[22px] pb-1 border-b-2 border-transparent hover:border-[#60d2d6] hover:text-[#97ebeb] transition-colors duration-300">Products</Link>
-          <Link to={"/user/about"} className="text-[18px] lg:text-[22px] pb-1 border-b-2 border-transparent hover:border-[#60d2d6] hover:text-[#97ebeb] transition-colors duration-300">AboutUs</Link>
-          <Link to={"/user/reviews"} className="text-[18px] lg:text-[22px] pb-1 border-b-2 border-transparent hover:border-[#60d2d6] hover:text-[#97ebeb] transition-colors duration-300">Reviews</Link>
-          <Link to={"/user/contact"} className="text-[18px] lg:text-[22px] pb-1 border-b-2 border-transparent hover:border-[#60d2d6] hover:text-[#97ebeb] transition-colors duration-300">ContactUs</Link>
+          <Link to={"/user/home"} className="text-[18px] lg:text-[22px] pb-1 border-b-2 border-transparent hover:border-[#f1c03a] hover:text-[#f1c03a] transition-colors duration-300">Home</Link>
+          <Link to={"/user/products"} className="text-[18px] lg:text-[22px] pb-1 border-b-2 border-transparent hover:border-[#f1c03a] hover:text-[#f1c03a] transition-colors duration-300">Products</Link>
+          <Link to={"/user/about"} className="text-[18px] lg:text-[22px] pb-1 border-b-2 border-transparent hover:border-[#60d2d6] hover:text-[#f1c03a] transition-colors duration-300">AboutUs</Link>
+          <Link to={"/user/reviews"} className="text-[18px] lg:text-[22px] pb-1 border-b-2 border-transparent hover:border-[#f1c03a] hover:text-[#f1c03a] transition-colors duration-300">Reviews</Link>
+          <Link to={"/user/contact"} className="text-[18px] lg:text-[22px] pb-1 border-b-2 border-transparent hover:border-[#f1c03a] hover:text-[#f1c03a] transition-colors duration-300">ContactUs</Link>
         </nav>
 
         {/* Buttons + Cart (hidden on mobile, visible from sm up) */}
-        <div className="hidden lg:flex items-center gap-2 sm:gap-3">
-          <div className="hidden">
+        <div className="hidden lg:flex items-center gap-2 ">
+          <Link to="/user/cart">
+            <LiaShoppingCartSolid className="text-3xl  text-[#f6f8f8] bg-transparent hover:text-[#f1c03a]" />
+          </Link>
+          <Link to={"/user/profile"}>
+            <CgProfile className="text-2xl  text-[#f6f8f8] bg-transparent hover:text-[#f1c03a]" />
+          </Link>
+          <div className="flex items-center ml-[0.5rem]">
             {!isloggedIn ? (
               <>
-                <Link to={"/login"} className="bg-[#eeeeee] hover:bg-[#ffffffe1] text-white px-4 sm:px-6 lg:px-8 py-1 rounded-[15px] text-[16px] sm:text-[18px] shadow-lg transition duration-300 cursor-pointer font-nano tracking-wider">
+                <Link to={"/login"} className="border-2 border-[#ecb417] hover:bg-[#ecb417] hover:text-black text-white  px-4 sm:px-6 lg:px-8 py-1 rounded-[15px] text-[16px] sm:text-[18px] shadow-lg transition duration-300 cursor-pointer font-nano tracking-wider">
                   Login
                 </Link>
                 <button
                   onClick={() => { navigate("/login", { state: { showRegister: true } }); }}
-                  className="bg-[#37f0f7] hover:bg-[#ffffffe1] text-white hover:text-[#97ebeb] px-4 sm:px-6 lg:px-8 py-1 rounded-[15px] text-[16px] sm:text-[18px] shadow-lg transition duration-300 cursor-pointer font-nano tracking-wider"
+                  className="bg-[#ecb417] hover:bg-[#d19017] text-black px-4  lg:px-8 py-[0.35rem] rounded-[13px] text-[16px] sm:text-[18px] shadow-lg transition duration-300 cursor-pointer font-nano ml-[0.5rem] tracking-wider"
                 >
                   Register
                 </button>
@@ -126,18 +133,12 @@ export default function Header() {
                   localStorage.removeItem("token");
                   setIsLoggedIn(false);
                 }}
-                className="bg-[#10214B] hover:bg-[#10214Bb1] text-white px-4 sm:px-6 lg:px-8 py-1 rounded-[15px] text-[16px] sm:text-[18px] shadow-lg cursor-pointer"
+                className="text-2xl cursor-pointer text-[#f6f8f8] bg-transparent hover:text-[#f1c03a]"
               >
-                Logout
+                <TbLogout />
               </button>
             )}
           </div>
-          <Link to="/user/cart">
-            <LiaShoppingCartSolid className="text-3xl  text-[#f6f8f8] bg-transparent hover:text-[#97ebeb]" />
-          </Link>
-          <Link>
-            <CgProfile className="text-2xl  text-[#f6f8f8] bg-transparent hover:text-[#97ebeb]" />
-          </Link>
         </div>
       </div>
     </header>

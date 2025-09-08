@@ -10,6 +10,7 @@ import CatagorieOverview from "./categorieoverview";
 import Reviews from "./reviewspage";
 import About from "./about";
 import Contact from "./contact";
+import Profile from "./profile";
 
 
 export function Clientpage() {
@@ -23,6 +24,7 @@ export function Clientpage() {
                 <Route path="/products" element={<ProductPage/>}/>
                 <Route path="/about" element={<About/>}/>
                 <Route path="/contact" element={<Contact/>}/>
+                <Route path="/profile" element={<Profile/>}/>
                 <Route path="/overview/:productId" element={<ProductOverview/>}/>
                 <Route path="/categorieoverview/:productId" element={<CatagorieOverview/>}/>
                 <Route path="/cart" element={<CartPage/>}/>

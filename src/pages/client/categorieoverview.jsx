@@ -75,7 +75,7 @@ export default function CatagorieOverview() {
 
                             {/* Buy + Add to Cart */}
                             <div className="flex px-[10px] justify-between lg:mt-[10px] lg:px-[10%] xl:px-[5%]">
-                                <button className="cursor-pointer px-[20px] md:px-[25px] py-[5px] md:py[10px] bg-pink-500 hover:bg-pink-600 text-white hover:text-black text-center rounded-[10px] text-xl font-medium transition-all duration-200 shadow-md"
+                                <button className="cursor-pointer px-[20px] md:px-[25px] py-[5px] md:py[10px] bg-yellow-700 hover:bg-yellow-600 text-white hover:text-black text-center rounded-[10px] text-xl font-medium transition-all duration-200 shadow-md"
                                     onClick={() => {
                                         navigate("/user/checkout", {
                                             state: {

@@ -2,7 +2,8 @@ import { Link, Route, Routes, useNavigate } from "react-router-dom";
 import { FaBoxArchive } from "react-icons/fa6";
 import { TbTruckDelivery } from "react-icons/tb";
 import { FaUserFriends } from "react-icons/fa";
-import { IoSettings } from "react-icons/io5";
+import { RiDashboardHorizontalFill } from "react-icons/ri";
+import { MdReviews } from "react-icons/md";
 import ProductsAdminPage from "./admin/productAdminPage";
 import AddProductPage from "./admin/addProductsAdminPage";
 import UpdateProductPage from "./admin/updateProducts";
@@ -12,6 +13,7 @@ import toast from "react-hot-toast";
 import Loading from "../components/loading";
 import axios from "axios";
 import ReviewAdminPage from "./admin/reviewadminpage";
+import UsersAdminpage from "./admin/usersAdminpage";
 export default function Adminpage() {
     const [adminValidate, setAdminValidate] = useState(false);
     const navigate = useNavigate();
@@ -46,13 +48,14 @@ export default function Adminpage() {
         <div className="w-full min-h-full h-auto bg-white flex">
             {adminValidate ? <Loading /> : (<div className="w-full min-h-full h-auto bg-white flex">
                 <div className="w-[300px] lg:w-[250px] min-h-full h-auto bg-[#152f22]  border-r-3 border-black text-white" >
-                    <h1 className="text-[25px] m-[20px] mb-[30px] font-bold text-center ">Admin Panel</h1>
-                    <div className="flex flex-col ml-[30px] text-[20px] gap-[45px] text-white ">
+                    <h1 className="text-[25px] m-[20px]  mb-[30px] font-bold text-center tracking-widest text-[#99f1c1]">Admin Panel</h1>
+                    <div className="flex flex-col mt-[4rem] ml-[30px] text-[20px] gap-[45px] text-white ">
+                        <Link className="flex flex-row items-center gap-[10px]  hover:bg-white hover:text-[#152f22] hover:p-[5px] hover:rounded-lg" to="/admin"> <RiDashboardHorizontalFill />DashBoard</Link>
                         <Link className="flex flex-row items-center gap-[10px]  hover:bg-white hover:text-[#152f22] hover:p-[5px] hover:rounded-lg" to="/admin/products"> <FaBoxArchive />Products</Link>
                         <Link className="flex flex-row items-center gap-[10px]  hover:bg-white hover:text-[#152f22] hover:p-[5px] hover:rounded-lg" to="/admin/orders"> <TbTruckDelivery />Orders</Link>
                         <Link className="flex flex-row items-center gap-[10px]  hover:bg-white hover:text-[#152f22] hover:p-[5px] hover:rounded-lg" to="/admin/users"> <FaUserFriends />Users</Link>
-                        <Link className="flex flex-row items-center gap-[10px]  hover:bg-white hover:text-[#152f22] hover:p-[5px] hover:rounded-lg" to="/admin/review"> <FaUserFriends />Reviews</Link>
-                        <Link className="flex flex-row items-center gap-[10px]  hover:bg-white hover:text-[#152f22] hover:p-[5px] hover:rounded-lg" to="/admin/setting"> <IoSettings /> Setting</Link>
+                        <Link className="flex flex-row items-center gap-[10px]  hover:bg-white hover:text-[#152f22] hover:p-[5px] hover:rounded-lg" to="/admin/review"> <MdReviews />Reviews</Link>
+                        
 
                     </div>
                 </div>
@@ -61,6 +64,7 @@ export default function Adminpage() {
                         <Route path="/" element={<h1>DashBoard</h1>} />
                         <Route path="/products" element={<ProductsAdminPage />} />
                         <Route path="/newproduct" element={<AddProductPage />} />
+                        <Route path="/users" element={<UsersAdminpage />} />
                         <Route path="/orders" element={<OrdersAdminPage />} />
                         <Route path="/update" element={<UpdateProductPage />} />
                         <Route path="/review" element={<ReviewAdminPage />} />

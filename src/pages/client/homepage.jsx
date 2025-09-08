@@ -1,8 +1,10 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+
 
 export default function HomePage() {
     const [selectedImg, setSelectedImg] = useState(null);
+    const navigate = useNavigate()
 
     return (
         <div className="w-full min-h-screen bg-[#0c0c0e] mx-auto flex flex-col overflow-hidden">
@@ -33,7 +35,7 @@ export default function HomePage() {
                         </p>
                     </div>
                     <button className="px-4 py-0.5 min-[420px]:px-6 md:px-8 md:py-3 mt-2 md:mt-[2rem] text-lg md:text-3xl font-semibold rounded-[18px] border-2 border-[#d4cfae] bg-white/20 backdrop-blur-md text-[20px] text-center
-                        text-[#ccc075] shadow-lg hover:scale-105 transition-transform duration-300 animate-slide-shimmer">
+                        text-[#ccc075] cursor-pointer shadow-lg hover:scale-105 transition-transform duration-300 animate-slide-shimmer" onClick={()=> navigate("/user/products")}>
                         Shop Now
                     </button>
                 </div>
@@ -60,8 +62,8 @@ export default function HomePage() {
                             </div>
                         </div>
 
-                        <button className="px-4 py-2 mt-3 md:mt-[2.5rem] lg:mt-[15px] xl:px-[5rem] text-lg md:text-3xl xl:text-4xl font-semibold rounded-[18px] border-2 border-[#d4cfae] bg-white/20 backdrop-blur-md text-[20px] text-center
-                            text-[#eee294] shadow-lg hover:scale-105 transition-transform duration-300 animate-slide-shimmer">
+                        <button className="px-4 py-2 mt-3 md:mt-[2.5rem] lg:mt-[15px] 2xl:mt-[2rem] xl:px-[5rem] text-lg md:text-3xl xl:text-4xl font-semibold rounded-[18px] border-2 border-[#d4cfae] bg-white/20 backdrop-blur-md text-[20px] text-center
+                            text-[#eee294] shadow-lg hover:scale-105 transition-transform duration-300 cursor-pointer animate-slide-shimmer" onClick={()=> navigate("/user/products")}>
                             Shop Now
                         </button>
                     </div>

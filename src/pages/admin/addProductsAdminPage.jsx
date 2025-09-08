@@ -118,7 +118,7 @@ export default function AddProductPage() {
                         type="text"
                         value={altnames}
                         onChange={(e) => setAltnames(e.target.value)}
-                        className="w-full  rounded-[5px] border-[2px] focus:border-blue-900 focus:outline-none pl-[4px] py-[3px]"
+                        className="w-full overflow-x-auto  rounded-[5px] border-[2px] focus:border-blue-900 focus:outline-none pl-[4px] py-[3px]"
                     />
                 </div>
 
