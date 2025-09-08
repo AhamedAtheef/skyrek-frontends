@@ -101,7 +101,7 @@ export default function Loginpage() {
             localStorage.setItem("token", res.data.token);
             setIsLoding(false)
 
-            toast.success("Login Success");
+            toast.success(res.data.message);
             if (res.data.role === "admin") {
                 navigate("/admin");
             } else {
@@ -109,7 +109,7 @@ export default function Loginpage() {
             }
         }).catch((error) => {
             console.log(error);
-            toast.error("Incorrect Email or Password");
+            toast.error(error.response.data.message);
             setIsLoding(false)
         })
     }

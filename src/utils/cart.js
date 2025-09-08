@@ -39,7 +39,7 @@
 export function getCart() {
   let cartInstring = localStorage.getItem("cart");
 
-  // ✅ also check for empty string
+  // also check for empty string
   if (!cartInstring || cartInstring === "null") {
     cartInstring = "[]";
     localStorage.setItem("cart", cartInstring);
