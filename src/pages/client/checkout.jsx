@@ -111,7 +111,7 @@ export default function CheckOutPage() {
                     {
                         cart.map((items, index) => {
                             return (
-                                <div key={items.productId} className="w-[280px] md:min-w-[700px] lg:min-w-[550px] xl:min-w-[900px] h-[100px] md:h-[300px] border-b-2 pb-[12px] border-gray-200 ml-[1%] 
+                                <div key={items.productId} className="min-w-[100%] px-2 md:min-w-[700px] lg:min-w-[550px] xl:min-w-[900px] h-[100px] md:h-[300px] border-b-2 pb-[12px] border-gray-200 ml-[1%] 
                                  flex justify-between items-center ">
                                     {/* Left side: image + details + quantity */}
                                     <div className="flex gap-[15px]">
@@ -165,7 +165,7 @@ export default function CheckOutPage() {
                 </div>}
 
             {/* Order Summary */}
-            <div className="w-[280px] md:w-[700px] lg:w-[380px] 2xl:min-w-[500px]  flex flex-col  md:h-[520px] ml-[2%] lg:ml-[0%] xl:ml-[3%] 2xl:ml-[5%] mt-[5%] p-[1%] pb-[2%] md:rounded-[10px] bg-transparent md:border-2 md:border-gray-200 gap-[3px] md:bg-white shadow-lg md:shadow-gray-400/100">
+            <div className="w-[100%] px-2  md:w-[700px] lg:w-[380px] 2xl:min-w-[500px]  flex flex-col  md:h-[520px] ml-[2%] lg:ml-[0%] xl:ml-[3%] 2xl:ml-[5%] mt-[5%] p-[1%] pb-[2%] md:rounded-[10px] bg-transparent md:border-2 md:border-gray-200 gap-[3px] md:bg-white shadow-lg md:shadow-gray-400/100">
                 <h1 className="text-2xl md:text-3xl text-center text-[#52504e] font-serif mb-[10px]">Order Summary</h1>
                 <h2 className="text-[17px] md:text-2xl "><span className="mr-[10px]">Subtotal : </span>LKR.{total.subtotal}</h2>
                 <h2 className="text-[17px] md:text-2xl"><span className="mr-[10px]">Shipping Charge: </span>LKR.{total.shippingCharge}</h2>
