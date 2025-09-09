@@ -19,7 +19,6 @@ export default function Loginpage() {
     const location = useLocation();
     const [isLoding, setIsLoding] = useState(false)
 
-
     /* google login */
     const googleLogin = useGoogleLogin({
         onSuccess: (tokenResponse) => {
@@ -54,16 +53,12 @@ export default function Loginpage() {
 
     }, [location.state]);
 
-
-
     /* Register page */
-
     const [fname, setFname] = useState("")
     const [lname, setLname] = useState("")
     const [femail, setFemail] = useState("")
     const [fpassword, setFPassword] = useState("")
     const [number, setNumber] = useState("")
-
 
     function Register() {
         axios.post(import.meta.env.VITE_BACKEND_URL + "/api/users", {
@@ -91,6 +86,7 @@ export default function Loginpage() {
 
             })
     }
+
     // Login page
     function login() {
         axios.post(import.meta.env.VITE_BACKEND_URL + "/api/users/login", {
@@ -116,7 +112,7 @@ export default function Loginpage() {
 
     return (
         /* Login + Register Wrapper */
-        <div className="w-full   h-screen bg-[url('/login2.jpg')] bg-cover bg-center bg-no-repeat grid place-content-center relative">
+        <div className="w-full h-screen bg-[url('/login2.jpg')] bg-cover bg-center bg-no-repeat grid place-content-center relative">
 
             {/* Login Page */}
             <div
@@ -146,32 +142,31 @@ export default function Loginpage() {
                 </div>
 
                 {/* Right Panel (Form) */}
-                <div className="flex flex-col  pl-[22px] lg:items-center w-full lg:w-[40%] lg:p-4 lg:pr-[6rem]">
-                    <div className="mt-[15px] ml-[2rem] md:ml-[3rem] lg:ml-0 mb-[10px] lg:mt-[30px] lg:mb-[20px] lg:text-center">
+                <div className="flex flex-col  pl-[22px] lg:items-center w-full  lg:w-[40%] lg:p-4 lg:pr-[6rem]">
+                    <div className="mt-[15px]  ml-[2rem] md:ml-[3rem] lg:ml-0 mb-[10px] lg:mt-[30px] lg:mb-[20px] lg:text-center">
                         <h1 className="text-[#f0b400] max-[325px]:ml-[1.5rem] min-[420px]:ml-[5rem] min-[375px]:ml-[3.5rem] md:ml-[1.5rem] lg:ml-0 font-bold text-2xl md:text-3xl lg:text-[35px]">Welcome Back</h1>
                         <h2 className="text-[16px] min-[420px]:ml-[3.5rem] min-[375px]:ml-[2rem] md:text-[18px] md:ml-[0.5rem] lg:ml-0 lg:text-[20px] text-[#d1d9e9]">Login to your beauty account</h2>
                     </div>
                     <div className="relative">
-                        <div className="absolute left-[1rem] top-[1.25rem]  text-[#1f1919] text-[21px] min-[375px]:left-[1rem] min-[400px]:top-[1.25rem] min-[400px]:left-[1rem] md:top-[2rem]"><MdOutlineAttachEmail /></div>
-                        <div className="absolute left-[1rem] top-[4.35rem] text-[#030303] text-[21px] min-[375px]:left-[1rem] min-[400px]:left-[1rem] md:top-[6.5rem]"><RiLockPasswordLine /></div>
+                        <div className="absolute left-[1rem] top-[1.25rem]  text-[#1f1919] text-[21px]"><MdOutlineAttachEmail /></div>
+                        <div className="absolute left-[1rem] top-[4.35rem] text-[#030303] text-[21px]"><RiLockPasswordLine /></div>
                         <form
                             onSubmit={(e) => { e.preventDefault(); setIsLoding(true); login(); }}
-                            className="flex  flex-col gap-[10px] md:gap-[35px] pl-[5px] pt-[10px] md:pt-[20px] relative"
-                            
+                            className="flex flex-col gap-[10px] md:gap-[35px] pl-[5px] pt-[10px] md:pt-[20px] relative"
                         >
                             <input
                                 type="email"
                                 onChange={(e) => setEmail(e.target.value)}
                                 placeholder="Email"
                                 required
-                                className="w-[90%] max-w-auto  md:w-[350px] h-[40px] text-[16px] md:text-[18px] px-3 border border-[#f0b400] rounded-[10px] text-amber-100 bg-transparent outline-none pl-[2.5rem] placeholder-amber-100"
+                                className="w-[90%] md:w-[350px] h-[40px] text-[16px] md:text-[18px] px-3 border border-[#f0b400] rounded-[10px] text-amber-100 bg-transparent outline-none pl-[2.5rem] placeholder-amber-100"
                             />
                             <input
                                 type={showPassword ? "text" : "password"}
                                 onChange={(e) => setPassword(e.target.value)}
                                 placeholder="Password"
                                 required
-                                className="w-[90%] max-w-auto  md:w-[350px] h-[40px] text-[16px] md:text-[18px] border border-[#f0b400] px-3 rounded-[10px] text-amber-100 bg-transparent outline-none pl-[2.5rem] placeholder-amber-100"
+                                className="w-[90%] md:w-[350px] h-[40px] text-[16px] md:text-[18px] border border-[#f0b400] px-3 rounded-[10px] text-amber-100 bg-transparent outline-none pl-[2.5rem] placeholder-amber-100"
                             />
 
                             <div className="flex flex-row justify-between items-center mr-[10%] md:mr-[20%] lg:gap-[50px] ">
@@ -180,7 +175,7 @@ export default function Loginpage() {
                                         type="checkbox"
                                         id="showPassword"
                                         onChange={() => setShowPassword(!showPassword)}
-                                        className="  lg:w-4  lg:h-4 accent-blue-600"
+                                        className="lg:w-4 lg:h-4 accent-blue-600"
                                     />
                                     <label htmlFor="showPassword" className="text-[14px] md:text-[15px] text-[#e0e5ee] cursor-pointer">
                                         Show Password
@@ -195,32 +190,32 @@ export default function Loginpage() {
 
                             <button
                                 type="submit"
-                                className="w-[90%] md:w-[350px] h-[35px] lg:h-[45px] rounded-[10px] text-black font-semibold bg-gradient-to-r  from-[#a78003] to-[#f0b400] hover:opacity-80 transition duration-300 cursor-pointer text-lg md:text-[22px] mt-[15px] md:mt-0 lg:mt-[15px] "
+                                className="w-[90%] md:w-[350px] h-[35px] lg:h-[45px] rounded-[10px] text-black font-semibold bg-gradient-to-r  from-[#a78003] to-[#f0b400] hover:opacity-80 transition duration-300 cursor-pointer text-lg md:text-[22px] mt-[15px]"
                             >
                                 {isLoding ? <LoadingDots /> : "Login"}
                             </button>
-
                         </form>
                     </div>
 
-                    <span className="min-[390px]:ml-[2.5rem] min-[375px]:ml-[1.5rem] mt-[20px] ml-[0.5rem] md:ml-[1.5rem] lg:ml-0  text-sm md:text-[17px] text-[#e2e9f3] lg:text-center">
+                    <span className="mt-[20px] ml-[0.5rem] min-[330px]:ml-[10%] min-[420px]:ml-[12%] md:ml-[1.5rem] lg:ml-0 text-sm md:text-[17px] text-[#e2e9f3] lg:text-center">
                         Don't have an account?{" "}
                         <button className="text-blue-400 cursor-pointer" onClick={() => setShowLogin(false)}>SignUp</button> from here
                     </span>
 
-                    <span className="min-[390px]:ml-[7.4rem] min-[375px]:ml-[6rem] mt-[5px] text-sm ml-[5rem] md:ml-[7rem] lg:ml-0 md:text-[17px] text-[#d7e1f3] lg:text-center">OR Continue With</span>
+                    <span className="mt-[5px] ml-[5.25rem] min-[330px]:ml-[30%] min-[420px]:ml-[32%] text-sm md:text-[17px]  text-[#d7e1f3] lg:text-center">OR Continue With</span>
 
-                    <div className="min-[320px]:ml-[3rem] min-[375px]:ml-[4rem] min-[390px]:ml-[5rem] min-[425px]:ml-[5.5rem] flex lg:flex-col md:ml-[5rem] md:mb-[10px] lg:mb-0 lg:ml-0  mt-[10px] md:items-center lg:mt-[2rem] ">
-                        <div className=" lg:w-[250px] h-[40px] text-[16px] md:text-[18px] border border-[#f0b400] px-3 rounded-[10px]
+                    <div className="flex lg:flex-col mt-[10px] md:items-center lg:mt-[2rem]">
+                        <div
+                            className="w-[90%] min-[420px]:ml-[1%] md:w-[350px] h-[40px] text-[16px] md:text-[18px] border border-[#f0b400] px-3 rounded-[10px]
                          text-amber-100 bg-transparent outline-none flex items-center justify-center gap-[5px] cursor-pointer"
-                            onClick={googleLogin}>
-                            <FcGoogle className="bg-white py-52px] px-[2px] rounded-[10px] lg:rounded-[5px] cursor-pointer text-2xl md:text-3xl" />
-                            <span className="">Sign With Google</span>
+                            onClick={googleLogin}
+                        >
+                            <FcGoogle className="bg-white px-[2px] rounded-[5px] cursor-pointer text-2xl md:text-3xl" />
+                            <span>Sign With Google</span>
                         </div>
                     </div>
                 </div>
             </div>
-
 
             {/* Register Page */}
             <div
@@ -250,29 +245,29 @@ export default function Loginpage() {
                 </div>
 
                 {/* Right Panel */}
-                <div className="flex flex-col max-[325px]:pl-[8px] max-[400px]:pl-[25px] lg:items-center w-full lg:w-[40%] lg:p-4 lg:pr-[6rem]">
-                    <div className="mt-[15px] ml-[20px] min-[370px]:ml-[0rem] min-[420px]:ml-[2rem] md:ml-[30px] lg:ml-0 mb-[10px] lg:mt-[30px] lg:mb-[20px] lg:text-center">
-                        <h1 className="text-[#f0b400] min-[370px]:ml-[2rem]  min-[400px]:ml-[5rem] md:ml-0 lg:ml-0 font-bold text-2xl md:text-3xl lg:text-[25px]">Create a new account</h1>
-                        <h2 className="text-[16px] max-[325px]:ml-[23px] min-[370px]:ml-[3.5rem]  min-[400px]:ml-[6.25rem] md:ml-[40px] lg:ml-0 md:text-[18px] lg:text-[18px] text-[#eaeffa]">Create your beauty account</h2>
+                <div className="flex flex-col px-6 sm:px-10 md:px-12 lg:items-center w-full lg:w-[40%] lg:p-4 lg:pr-[6rem]">
+                    <div className="mt-[15px] mb-[10px] lg:mt-[30px] lg:mb-[20px] lg:text-center">
+                        <h1 className="text-[#f0b400] font-bold text-2xl md:text-3xl lg:text-[25px] md:ml-[1%] lg:ml-0 text-center md:text-start lg:text-center">Create a new account</h1>
+                        <h2 className="text-[16px] md:text-[18px] lg:text-[18px] text-[#eaeffa] md:ml-[12%] lg:ml-0 text-center md:text-start lg:text-center">Create your beauty account</h2>
                     </div>
-                    <div className="relative">
+                    <div className="relative w-full flex lg:justify-center">
                         <form
                             onSubmit={(e) => { e.preventDefault(); setIsLoding(true); Register(); }}
-                            className="flex flex-col gap-[20px] min-[420px]:ml-[2rem] md:ml-5 lg:ml-0 md:gap-[28px] pt-[20px] relative "
+                            className="flex flex-col gap-[20px] w-full max-w-[350px] md:w-[320px] pt-[20px]"
                         >
                             <input
                                 type="text"
                                 placeholder="First name"
                                 required
                                 onChange={(e) => setFname(e.target.value)}
-                                className="w-[95%]   md:w-[350px] h-[40px] text-[16px] md:text-[18px] px-3 border border-[#f0b400] rounded-[10px] text-amber-100 bg-transparent outline-none placeholder-amber-100"
+                                className="w-full h-[40px] text-[16px] md:text-[18px] px-3 border border-[#f0b400] rounded-[10px] text-amber-100 bg-transparent outline-none placeholder-amber-100"
                             />
                             <input
                                 type="text"
                                 placeholder="Last name"
                                 required
                                 onChange={(e) => setLname(e.target.value)}
-                                className="w-[95%]   md:w-[350px] h-[40px] text-[16px] md:text-[18px] px-3 border border-[#f0b400] rounded-[10px] text-amber-100 bg-transparent outline-none placeholder-amber-100"
+                                className="w-full h-[40px] text-[16px] md:text-[18px] px-3 border border-[#f0b400] rounded-[10px] text-amber-100 bg-transparent outline-none placeholder-amber-100"
                             />
                             <input
                                 type="text"
@@ -282,38 +277,36 @@ export default function Loginpage() {
                                 onChange={(e) => setNumber(e.target.value)}
                                 placeholder="Phone number"
                                 onKeyPress={(e) => { if (!/[0-9]/.test(e.key)) e.preventDefault(); }}
-                                className="w-[95%]  md:w-[350px] h-[40px] text-[16px] md:text-[18px] px-3 border border-[#f0b400] rounded-[10px] text-amber-100 bg-transparent outline-none placeholder-amber-100"
+                                className="w-full h-[40px] text-[16px] md:text-[18px] px-3 border border-[#f0b400] rounded-[10px] text-amber-100 bg-transparent outline-none placeholder-amber-100"
                             />
                             <input
                                 type="email"
                                 placeholder="Email"
                                 required
                                 onChange={(e) => setFemail(e.target.value)}
-                                className="w-[95%]  md:w-[350px] h-[40px] text-[16px] md:text-[18px] px-3 border border-[#f0b400] rounded-[10px] text-amber-100 bg-transparent outline-none placeholder-amber-100"
+                                className="w-full h-[40px] text-[16px] md:text-[18px] px-3 border border-[#f0b400] rounded-[10px] text-amber-100 bg-transparent outline-none placeholder-amber-100"
                             />
                             <input
                                 type="text"
                                 placeholder="Password"
                                 required
                                 onChange={(e) => setFPassword(e.target.value)}
-                                className="w-[95%]  md:w-[350px] h-[40px] text-[16px] md:text-[18px] px-3 border border-[#f0b400] rounded-[10px] text-amber-100 bg-transparent outline-none placeholder-amber-100"
+                                className="w-full h-[40px] text-[16px] md:text-[18px] px-3 border border-[#f0b400] rounded-[10px] text-amber-100 bg-transparent outline-none placeholder-amber-100"
                             />
                             <button
                                 type="submit"
-                                className="w-[95%]  md:w-[350px] h-[40px] lg:h-[45px] rounded-[10px] text-black font-semibold bg-gradient-to-r from-[#a78003] to-[#f0b400] hover:opacity-80 transition duration-300 cursor-pointer text-lg md:text-[22px] mt-[15px]"
+                                className="w-full h-[40px] lg:h-[45px] rounded-[10px] text-black font-semibold bg-gradient-to-r from-[#a78003] to-[#f0b400] hover:opacity-80 transition duration-300 cursor-pointer text-lg md:text-[22px] mt-[15px]"
                             >
                                 {isLoding ? <LoadingDots /> : "Submit"}
                             </button>
                         </form>
                     </div>
-                    <span className=" w-full max-[325px]:ml-[0.55rem] mt-[20px] min-[370px]:ml-[1.5rem] min-[400px]:ml-[4rem] md:ml-[2.5rem] lg:ml-0 mb-[10px] md:mb-0 text-sm md:text-[17px] lg:text-center text-[#e7e7e9]">
+                    <span className="w-full mt-[20px] text-sm md:text-[17px] lg:text-center text-[#e7e7e9] text-center md:text-start">
                         Already have an account?{" "}
-                        <button className="text-blue-400 cursor-pointer" onClick={() => setShowLogin(true)}>SignIn</button> from here
+                        <button className="text-blue-400 cursor-pointer" onClick={() => setShowLogin(true)}>Login</button> from here
                     </span>
                 </div>
             </div>
-
         </div>
-
     );
 }

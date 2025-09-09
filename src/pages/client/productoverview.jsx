@@ -12,7 +12,7 @@ export default function ProductOverview() {
     const [categories, setCategories] = useState([]);
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
-    const { productId } = useParams(); 
+    const { productId } = useParams();
     const [status, setStatus] = useState("loading"); // loading, success, error
 
     // ✅ fetch single product
@@ -58,9 +58,9 @@ export default function ProductOverview() {
             {status == "loading" && <BarLoader />}
 
             {/* Success */}
-            {status == "success" && (<div>
+            {status == "success" && (
                 <div className="w-[20rem] min-h-full h-auto flex flex-col mt-[30%]
-                md:w-[50rem] md:mt-[15%] lg:flex-row lg:gap-[16px] lg:w-[68rem] lg:mt-[10%] xl:mt-[8%] xl:ml-[10rem] xl:gap-[50px] 2xl:ml-[25rem]">
+                md:w-[50rem] md:mt-[15%] lg:flex-row lg:gap-[16px] lg:w-[68rem] lg:mt-[10%] xl:mt-[8%] xl:gap-[50px]">
 
                     {/* Image Slider */}
                     <ImageSlider images={product.images} />
@@ -88,20 +88,18 @@ export default function ProductOverview() {
                                 <div className="flex items-center justify-between mt-2 mr-[5px] ">
                                     {/* price */}
                                     <p className="text-[20px] md:text-3xl font-extrabold text-black">
-                                        LKR {Number(product?.price || 0).toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                                        LKR {product.price.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                                     </p>
-
                                     {/* labelled Price */}
                                     <p className="text-[16px] md:text-2xl text-gray-500 line-through">
-                                        LKR {Number(product?.labelledPrice || 0).toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                                        LKR {product.labelledPrice.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                                     </p>
                                 </div>
-
                             </div>
 
                             {/* Buy + Add to Cart */}
                             <div className="flex px-[10px] justify-between lg:mt-[10px] lg:px-[10%] xl:px-[5%]">
-                                <button className="cursor-pointer px-[20px] md:px-[25px] py-[5px] md:py[10px] bg-[#666144] hover:bg-[#d4cfae] text-white hover:text-black text-center rounded-[10px] text-xl font-medium transition-all duration-200 shadow-md"
+                                <button className="cursor-pointer px-[20px] md:px-[25px] py-[5px] md:py[10px] bg-yellow-700 hover:bg-yellow-600 text-white hover:text-black text-center rounded-[10px] text-xl font-medium transition-all duration-200 shadow-md"
                                     onClick={() => {
                                         navigate("/user/checkout", {
                                             state: {
@@ -129,15 +127,15 @@ export default function ProductOverview() {
                             </div>
                         </div>
                     </div>
-
                 </div>
-                <h1 className="text-3xl font-bold mt-[50px] lg:mt-[20px] mb-[10px] tracking-wide text-[#332929] text-center md:text-3xl lg:text-4xl  ">Related Products</h1>
-                {/* Categories */}
-                {loading ? (
-                    <BarLoader />
-                ) : (
-                    <div
-                        className="w-full h-full flex bg-[#f8eee3ea] flex-wrap justify-start items-start 
+            )}
+            <h1 className="text-3xl font-bold mt-[50px] lg:mt-[20px] mb-[5px] tracking-wide text-[#332929] text-center md:text-3xl lg:text-4xl " id="premiumtext">Related Products</h1>
+            {/* Categories */}
+            {loading ? (
+                <BarLoader />
+            ) : (
+                <div
+                    className="w-full h-full flex bg-[#f8eee3ea] flex-wrap justify-start items-start 
           gap-10 px-[80px] pt-[40px] pb-[40px]
           min-[1440px]:gap-8 min-[1440px]:px-[60px] min-[1440px]:pl-[7rem]      
           min-[1500px]:gap-8 min-[1500px]:px-[60px] min-[1500px]:pl-[10rem]      
@@ -147,14 +145,12 @@ export default function ProductOverview() {
           max-[435px]:gap-[12px] max-[435px]:px-0 max-[435px]:pt-0 max-[435px]:pb-0
           max-[435px]:justify-start max-[435px]:items-start
           lg:ml-[20px] xl:ml-0 "
-                    >
+                >
 
-                        {categories.map((category,key) => {
-                           return <CategorieCard  key = {key} product={category} />
-                        })}
-                    </div>
-                )}
-            </div>
+                    {categories.map((category, key) => {
+                        return <CategorieCard key={key} product={category} />
+                    })}
+                </div>
             )}
 
             {/* Error */}
