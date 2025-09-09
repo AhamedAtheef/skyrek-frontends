@@ -46,7 +46,7 @@ export default function CartPage() {
                         return (
                             <div
                                 key={items.productId}
-                                className="min-w-[100%] px-2 md:px-0 w-auto  md:min-w-[700px]  h-[100px] md:h-[300px] border-b-2 pb-[12px] border-gray-200 ml-[1%] 
+                                className="min-w-[100%] max-[325px]:w-[130%] h-[130%] px-1 md:px-0 w-auto md:min-w-[700px]  md:h-[300px] border-b-2  pb-[12px] border-gray-200 ml-[1%] 
                                  flex justify-between items-center"
                             >
                                 {/* Left side */}
