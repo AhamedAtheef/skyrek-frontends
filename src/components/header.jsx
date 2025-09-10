@@ -111,7 +111,7 @@ export default function Header() {
         <nav className="hidden lg:flex gap-[20px] text-[#fffdfd] font-medium mr-[12rem] xl:mr-[25rem] 2xl:mr-[38rem] 2xl:gap-[30px]">
           <Link to={"/user/home"} className="text-[18px] lg:text-[22px] pb-1 border-b-2 border-transparent hover:border-[#f1c03a] hover:text-[#f1c03a] transition-colors duration-300">Home</Link>
           <Link to={"/user/products"} className="text-[18px] lg:text-[22px] pb-1 border-b-2 border-transparent hover:border-[#f1c03a] hover:text-[#f1c03a] transition-colors duration-300">Products</Link>
-          <Link to={"/user/about"} className="text-[18px] lg:text-[22px] pb-1 border-b-2 border-transparent hover:border-[#60d2d6] hover:text-[#f1c03a] transition-colors duration-300">AboutUs</Link>
+          <Link to={"/user/about"} className="text-[18px] lg:text-[22px] pb-1 border-b-2 border-transparent hover:border-[#f1c03a] hover:text-[#f1c03a] transition-colors duration-300">AboutUs</Link>
           <Link to={"/user/reviews"} className="text-[18px] lg:text-[22px] pb-1 border-b-2 border-transparent hover:border-[#f1c03a] hover:text-[#f1c03a] transition-colors duration-300">Reviews</Link>
           <Link to={"/user/contact"} className="text-[18px] lg:text-[22px] pb-1 border-b-2 border-transparent hover:border-[#f1c03a] hover:text-[#f1c03a] transition-colors duration-300">ContactUs</Link>
         </nav>

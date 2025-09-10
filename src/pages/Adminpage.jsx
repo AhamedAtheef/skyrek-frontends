@@ -59,7 +59,7 @@ export default function Adminpage() {
                         <Link className="flex flex-row items-center gap-[10px]  hover:bg-white hover:text-[#152f22] hover:p-[5px] hover:rounded-lg" to="/admin/users"> <FaUserFriends />Users</Link>
                         <Link className="flex flex-row items-center gap-[10px]  hover:bg-white hover:text-[#152f22] hover:p-[5px] hover:rounded-lg" to="/admin/review"> <MdReviews />Reviews</Link>
                     </div>
-                    <div  className=" absolute pl-[2rem]cursor-pointer flex w-full bottom-1 flex-row items-center py-[0.25em] gap-[10px] bg-gray-300 text-[#000000] hover:p-[5px] hover:rounded-lg"
+                    <div  className=" absolute pl-[2rem] cursor-pointer flex w-full bottom-1 flex-row items-center py-[0.25em] gap-[10px] bg-gray-300 text-[#000000] hover:p-[5px] hover:rounded-lg"
                     onClick={() => navigate("/admin/adminprofile")}>
                         <FaRegUserCircle className="text-3xl cursor-pointer"/>
                      <span className="text-2xl cursor-pointer font-semibold tracking-wider">PROFILE</span>

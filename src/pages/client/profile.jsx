@@ -1,10 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, use } from "react";
 import toast from "react-hot-toast";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import BarLoader from "../../components/homeloading";
 import UploadFile from "../../utils/meadiaupload";
-
 
 export default function Profile() {
     const [userdata, setUserData] = useState({});
@@ -12,7 +11,9 @@ export default function Profile() {
     const page = 1;
     const limit = 10;
     const [loading, setLoading] = useState(true);
+    const [deletePassword, setDeletePassword] = useState("");
     const [editMode, setEditMode] = useState(false);
+    const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
 
     const token = localStorage.getItem("token");
 
@@ -49,7 +50,6 @@ export default function Profile() {
     }, [token]);
 
     const handleSave = async () => {
-
         try {
             setLoading(true);
             let imageUrl = userdata.image || null; // use existing image if no new upload
@@ -84,11 +84,31 @@ export default function Profile() {
         }
     };
 
-    if (loading) return <div><BarLoader/></div>;
+    const handleDeleteAccount = async () => {
+        try {
+            setLoading(true);
+            await axios.delete(`${import.meta.env.VITE_BACKEND_URL}/api/users/`, {
+                data: { email: userdata.email, password: deletePassword },
+                headers: { Authorization: `Bearer ${token}` },
+            });
+            setLoading(false);
+            localStorage.clear();
+            window.location.href = "/";
+            toast.success("Account deleted successfully");
+        } catch (err) {
+            console.error(err);
+            toast.error(err.response?.data?.message || "Failed to delete account");
+            setLoading(false);
+        }
+    };
+
+    if (loading) return <div><BarLoader /></div>;
 
     return (
         <div className="w-full p-4 sm:p-6 md:p-8 bg-[url('/profile.jpg')] bg-cover bg-center bg-no-repeat pt-[10%] min-h-screen">
-            {loading ? <BarLoader/>:<div className="max-w-3xl mx-auto backdrop-blur-md md:backdrop-blur-md p-4 mt-[25%] lg:mt-[10%] sm:p-6 md:p-8 rounded-2xl shadow-lg">
+            <div className="relative max-w-3xl mx-auto backdrop-blur-md md:backdrop-blur-md p-4 mt-[25%] lg:mt-[10%] sm:p-6 md:p-8 rounded-2xl shadow-lg">
+
+                {/* Profile Image & Name */}
                 <div className="flex flex-col sm:flex-row items-center sm:space-x-6 space-y-4 sm:space-y-0">
                     {/* Profile Image */}
                     <div className="relative w-24 h-24 sm:w-28 sm:h-28 rounded-full bg-gray-300 overflow-hidden flex items-center justify-center group">
@@ -99,7 +119,6 @@ export default function Profile() {
                                     alt="Profile"
                                     className="w-full h-full object-cover"
                                 />
-                                {/* X button on hover */}
                                 {editMode && (
                                     <button
                                         type="button"
@@ -145,8 +164,6 @@ export default function Profile() {
                                 >
                                     {userdata.firstName ? userdata.firstName[0].toUpperCase() : "A"}
                                 </span>
-
-                                {/* Plus button on hover in edit mode */}
                                 {editMode && (
                                     <label className="absolute inset-0 flex items-center justify-center bg-black/50 cursor-pointer transition text-4xl text-white font-bold">
                                         +
@@ -169,7 +186,6 @@ export default function Profile() {
                                 )}
                             </>
                         )}
-
                     </div>
 
                     {/* Name */}
@@ -180,65 +196,53 @@ export default function Profile() {
                     </div>
                 </div>
 
-                {/* Form */}
+                {/* Form Fields */}
                 <div className="mt-6 sm:mt-8 space-y-4">
                     <div>
-                        <label className="block text-[#e4a124] mb-1 text-sm sm:text-base">
-                            First Name
-                        </label>
+                        <label className="block text-[#e4a124] mb-1 text-sm sm:text-base">First Name</label>
                         <input
                             type="text"
                             name="firstName"
                             value={userdata.firstName || ""}
                             onChange={handleChange}
                             disabled={!editMode}
-                            className={`w-full p-2 border rounded-lg text-white text-sm sm:text-base ${editMode ? "border-[#ecbf6a]" : "border-[#f7b232]"
-                                }`}
+                            className={`w-full p-2 border rounded-lg text-white text-sm sm:text-base ${editMode ? "border-[#ecbf6a]" : "border-[#f7b232]"}`}
                         />
                     </div>
 
                     <div>
-                        <label className="block text-[#f5b031] mb-1 text-sm sm:text-base">
-                            Last Name
-                        </label>
+                        <label className="block text-[#f5b031] mb-1 text-sm sm:text-base">Last Name</label>
                         <input
                             type="text"
                             name="lastName"
                             value={userdata.lastName || ""}
                             onChange={handleChange}
                             disabled={!editMode}
-                            className={`w-full p-2 border rounded-lg text-white text-sm sm:text-base ${editMode ? "border-[#ecbf6a]" : "border-[#f7b232]"
-                                }`}
+                            className={`w-full p-2 border rounded-lg text-white text-sm sm:text-base ${editMode ? "border-[#ecbf6a]" : "border-[#f7b232]"}`}
                         />
                     </div>
 
                     <div>
-                        <label className="block text-[#f5b031] mb-1 text-sm sm:text-base">
-                            Email
-                        </label>
+                        <label className="block text-[#f5b031] mb-1 text-sm sm:text-base">Email</label>
                         <input
                             type="email"
                             name="email"
                             value={userdata.email || ""}
                             onChange={handleChange}
                             disabled={!editMode}
-                            className={`w-full p-2 border rounded-lg text-white text-sm sm:text-base ${editMode ? "border-[#ecbf6a]" : "border-[#f7b232]"
-                                }`}
+                            className={`w-full p-2 border rounded-lg text-white text-sm sm:text-base ${editMode ? "border-[#ecbf6a]" : "border-[#f7b232]"}`}
                         />
                     </div>
 
                     <div>
-                        <label className="block text-[#f5b031] mb-1 text-sm sm:text-base">
-                            Phone
-                        </label>
+                        <label className="block text-[#f5b031] mb-1 text-sm sm:text-base">Phone</label>
                         <input
                             type="text"
                             name="phone"
                             value={userdata.phone || ""}
                             onChange={handleChange}
                             disabled={!editMode}
-                            className={`w-full p-2 border rounded-lg text-white text-sm sm:text-base ${editMode ? "border-[#ecbf6a]" : "border-[#f7b232]"
-                                }`}
+                            className={`w-full p-2 border rounded-lg text-white text-sm sm:text-base ${editMode ? "border-[#ecbf6a]" : "border-[#f7b232]"}`}
                         />
                     </div>
                 </div>
@@ -247,35 +251,49 @@ export default function Profile() {
                 <div className="mt-6 flex flex-col sm:flex-row justify-between sm:space-x-4 space-y-2 sm:space-y-0">
                     {editMode ? (
                         <>
-                            <button
-                                onClick={handleSave}
-                                className="bg-[#ddb515] text-black px-6 py-2 md:px-[4rem] rounded-lg hover:bg-[#d1ab14c7] transition text-sm sm:text-base"
-                            >
+                            <button onClick={handleSave} className="bg-[#ddb515] cursor-pointer text-black px-6 py-2 md:px-[4rem] rounded-lg hover:bg-[#d1ab14c7] transition text-sm sm:text-base">
                                 Save
                             </button>
-                            <button
-                                onClick={() => setEditMode(false)}
-                                className="bg-gray-300 text-gray-700 px-6 py-2 md:px-[4rem] rounded-lg hover:bg-gray-400 transition text-sm sm:text-base"
-                            >
+                            <button onClick={() => setEditMode(false)} className="bg-gray-300 text-gray-700 px-6 py-2 md:px-[4rem] rounded-lg hover:bg-gray-400 transition text-sm sm:text-base">
                                 Cancel
                             </button>
-                            <Link
-                                to={"/forgotpassword"}
-                                className="bg-[#ddb515] text-black text-center px-6 py-2 cursor-pointer rounded-lg hover:bg-[#d1ab14c7] transition text-sm sm:text-base"
-                            >
+                            <Link to={"/forgotpassword"} className="bg-[#ddb515] text-black text-center px-6 py-2 cursor-pointer rounded-lg hover:bg-[#d1ab14c7] transition text-sm sm:text-base">
                                 Forget Password
                             </Link>
                         </>
                     ) : (
-                        <button
-                            onClick={() => setEditMode(true)}
-                            className="bg-[#ddb515] text-black px-6 py-2 cursor-pointer rounded-lg hover:bg-[#d1ab14c7] transition text-sm sm:text-base"
-                        >
+                        <button onClick={() => setEditMode(true)} className="bg-[#ddb515] text-black px-6 py-2 cursor-pointer rounded-lg hover:bg-[#d1ab14c7] transition text-sm sm:text-base">
                             Edit Profile
                         </button>
                     )}
+
+                    <div>
+                        <button onClick={() => setShowDeleteConfirm(true)} className="bg-red-600 w-full text-white px-6 py-2 cursor-pointer rounded-lg hover:bg-red-700 transition text-sm sm:text-base">
+                            Delete Account
+                        </button>
+                    </div>
                 </div>
-            </div>}
+
+                {showDeleteConfirm && (
+                    <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+                        <div className="bg-white rounded-xl p-6 max-w-sm w-full text-center shadow-lg space-y-4">
+                            <h3 className="text-lg font-bold text-red-600">Confirm Delete</h3>
+                            <p>Are you sure you want to delete your account? This action cannot be undone.</p>
+                            <input type="password" className="w-full p-2 border rounded-lg text-black" 
+                            onChange={(e) => setDeletePassword(e.target.value)} placeholder="Enter your password"/>
+                            <div className="flex justify-between mt-4 space-x-2">
+                                <button onClick={handleDeleteAccount} className="bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition w-1/2">
+                                    Yes, Delete
+                                </button>
+                                <button onClick={() => setShowDeleteConfirm(false)} className="bg-gray-300 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-400 transition w-1/2">
+                                    Cancel
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                )}
+
+            </div>
         </div>
     );
 }
