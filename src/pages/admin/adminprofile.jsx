@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import toast from "react-hot-toast";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 export default function AdminProfile() {
   const [adminData, setAdminData] = useState({});
@@ -21,6 +22,9 @@ export default function AdminProfile() {
           headers: { Authorization: `Bearer ${token}` },
         });
         setAdminData(res.data);
+        if (res.data.firstName && res.data.lastName) {
+          localStorage.setItem("adminName", `${res.data.firstName} ${res.data.lastName}`);
+        }
       } catch (err) {
         console.error(err);
         toast.error("Failed to fetch admin data");
@@ -147,6 +151,9 @@ export default function AdminProfile() {
               Edit Profile
             </button>
           )}
+          <div>
+          <Link to={"/forgotpassword"} className="bg-green-800 text-white px-6 py-2 cursor-pointer rounded-lg hover:bg-green-700 transition">Forget Password</Link>
+          </div>
         </div>
       </div>
     </div>

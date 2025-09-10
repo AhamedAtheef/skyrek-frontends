@@ -12,12 +12,15 @@ import { MdReviews } from "react-icons/md";
 import { FaShoppingCart } from "react-icons/fa";
 import { CgProfile } from "react-icons/cg";
 import { TbLogout } from "react-icons/tb";
+import { getCart } from "../utils/cart";
 
 export default function Header() {
   const navigate = useNavigate();
   const location = useLocation();
   const [isloggedIn, setIsLoggedIn] = useState(false);
   const [sideNav, setSideNav] = useState(false);
+  const [cart, setCart] = useState(getCart())
+
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -27,6 +30,12 @@ export default function Header() {
       setIsLoggedIn(false);
     }
   }, [isloggedIn]);
+
+  useEffect(() => {
+    const handleCartUpdate = () => setCart(getCart());
+    window.addEventListener("cartUpdated", handleCartUpdate);
+    return () => window.removeEventListener("cartUpdated", handleCartUpdate);
+  }, []);
 
   return (
     <header
@@ -97,6 +106,7 @@ export default function Header() {
           <img src="/CBC.png" alt="" className="w-[100px] h-[98px] hover:cursor-pointer" onClick={() => navigate("/user/home")} />
         </div>
 
+
         {/* Nav Links (hidden on mobile, show from md) */}
         <nav className="hidden lg:flex gap-[20px] text-[#fffdfd] font-medium mr-[12rem] xl:mr-[25rem] 2xl:mr-[38rem] 2xl:gap-[30px]">
           <Link to={"/user/home"} className="text-[18px] lg:text-[22px] pb-1 border-b-2 border-transparent hover:border-[#f1c03a] hover:text-[#f1c03a] transition-colors duration-300">Home</Link>
@@ -108,7 +118,10 @@ export default function Header() {
 
         {/* Buttons + Cart (hidden on mobile, visible from sm up) */}
         <div className="hidden lg:flex items-center gap-2 ">
-          <Link to="/user/cart">
+          <Link to="/user/cart ">
+            <div className={`${cart.length === 0 ? "hidden" : "flex"} w-[15px] h-[15px] rounded-full right-[6.35rem] top-[1.5rem] bg-[#f1c03a] flex justify-center items-center absolute`}>
+              <span className="text-[10px] font-semibold text-black">{cart.length}</span>
+            </div>
             <LiaShoppingCartSolid className="text-3xl  text-[#f6f8f8] bg-transparent hover:text-[#f1c03a]" />
           </Link>
           <Link to={"/user/profile"}>

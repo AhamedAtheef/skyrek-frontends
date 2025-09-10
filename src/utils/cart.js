@@ -49,34 +49,31 @@ export function getCart() {
 }
 
 export function addCart(product, qty) {
-  const cart = getCart();//get cart
+  const cart = getCart();
 
-  // Check if product already exists
   const existingProductIndex = cart.findIndex(item => item.productId === product.productId);
-  
-  //cart is empty
-  if (existingProductIndex === -1) {
 
-    // New product → add with quantity
+  if (existingProductIndex === -1) {
     cart.push({ ...product, quantity: qty });
     localStorage.setItem("cart", JSON.stringify(cart));
   } else {
-    // Update quantity
     const newQty = cart[existingProductIndex].quantity + qty;
 
     if (newQty <= 0) {
-      // Remove product if qty <= 0
       const newCart = cart.filter((item, index) => index !== existingProductIndex);
       localStorage.setItem("cart", JSON.stringify(newCart));
+
+      // dispatch here so UI knows cart changed even when deleting
+      window.dispatchEvent(new Event("cartUpdated"));
       return;
     } else {
-
-      // Set updated quantity
       cart[existingProductIndex].quantity = newQty;
-      // Save updated cart
       localStorage.setItem("cart", JSON.stringify(cart));
     }
-
   }
+
+  // always dispatch after adding/updating
+  window.dispatchEvent(new Event("cartUpdated"));
 }
+
 

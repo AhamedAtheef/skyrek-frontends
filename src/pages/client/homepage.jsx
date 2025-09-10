@@ -1,5 +1,9 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import FakeReviews from "../../components/fakereview";
+import MobileReviews from "../../components/mobilereview";
+import Footer from "../../components/footer";
+import WhatsAppButton from "../../components/whatsapp";
 
 
 export default function HomePage() {
@@ -18,7 +22,7 @@ export default function HomePage() {
                     className="w-full h-full object-cover"
                 ></video>
 
-
+              
                 <div className="lg:hidden absolute top-[1rem] md:top-[2rem] px-[2rem] md:px-[6rem] w-full h-full">
                     <h1 className="text-[23px] pb-[10px] min-[370px]:text-3xl md:text-5xl font-bold
                         bg-gradient-to-r from-[#f8f3d4] via-[#f0da98] to-[#eba04c]
@@ -143,7 +147,7 @@ export default function HomePage() {
             {/* About */}
             <div className="w-full min-h-0 h-auto flex flex-col pt-[1rem] pb-[1rem] md:flex-row md:px-[3rem] md:py-[4rem] justify-center items-center xl:items-start bg-white relative" id="about">
                 <div className="hidden w-full h-full  md:flex justify-center ">
-                    <img src="/about.png" alt="" className="object-cover h-[280px] w-[380px] lg:h-[320px] lg:w-[480px] xl:h-[420px] xl:w-[580px] rounded-bl-4xl rounded-tr-4xl lg:rounded-bl-[3.75rem] lg:rounded-tr-[3.75rem] animate-slideUp " />
+                    <img src="/about.png" alt="" className="object-cover h-[280px] w-[380px] lg:h-[320px] lg:w-[480px] xl:h-[420px] xl:w-[580px] rounded-bl-4xl rounded-tr-4xl lg:rounded-bl-[3.75rem] lg:rounded-tr-[3.75rem]  animate-slideUp " />
                 </div>
                 {/* intro */}
                 <div className="text-center px-[1rem] w-full h-full flex flex-col justify-center items-center xl:mb-[5rem] ">
@@ -178,6 +182,20 @@ export default function HomePage() {
                 <div className="w-full h-[500px] xl:px-[8rem] 2xl:px-[10rem] ">
                     <video src="/slide.mp4" autoPlay loop muted playsInline className="w-full h-[490px] 2xl:h-[640px] object-contain xl:object-fill"></video>
                 </div>
+            </div>
+            {/* reviews */}
+            <div className="w-full h-auto bg-[#fff4e0] flex flex-col items-center">
+                <div className="lg:block w-[800px] 2xl:w-[1000px] px-[2rem] overflow-hidden hidden">
+                    <FakeReviews/>
+                </div>
+                <div className="w-full h-auto lg:hidden">
+                    <MobileReviews/>
+                </div>
+            </div>
+            {/* footer */}
+            <div className="w-full">
+                <Footer/>
+                <WhatsAppButton/>
             </div>
         </div>
     );

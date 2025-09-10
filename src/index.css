@@ -243,7 +243,7 @@
   }
 }
 
-.animate-slideUp {
+.animate-slideUp:hover {
   animation: slideUp 1s ease-out forwards;
 }
 
@@ -277,4 +277,62 @@
 /* for more cards */
 .review-card:nth-child(n+4) {
   animation-delay: calc(0.4s + 0.2s * (n - 3));
+}
+
+
+@keyframes slideX {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+@media (min-width: 1280px) {
+  .xl-slide {
+    animation: slideX 0.6s ease-in-out forwards; /* forwards keeps final position */
+  }
+}
+
+/* WhatsApp Floating Button */
+.whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 56px;
+  height: 56px;
+  background: #25d366;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  z-index: 9999;
+  transition: background 0.3s;
+}
+
+.whatsapp-float:hover {
+  background: #1ebe5d;
+}
+
+/* Bounce Animation */
+@keyframes bounce-slow {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-12px);
+  }
+  60% {
+    transform: translateY(-6px);
+  }
+}
+
+/* Run bounce every 4s */
+.whatsapp-icon {
+  animation: bounce-slow 1s infinite;
+  animation-delay: 4s;
 }

@@ -41,6 +41,7 @@ export default function CartPage() {
         <div className="min-w-full min-h-full h-auto flex flex-col pt-[28%] md:pt-[15%] lg:pt-[10%] xl:pt-[8%] pl-[3%] bg-[#f8f8f8]">
             <div className="overflow-y-scroll h-[600px] overflow-hidden flex flex-col gap-[15px] pr-[6rem] lg:ml-[3%]">
                 <h1 className="text-2xl md:text-3xl text-[#52504e] font-semibold mb-[2%] ml-[4%]">Shopping Cart</h1>
+                {cart.length === 0 &&  (<h1 className="text-[18px] md:text-3xl text-center text-[#0e0802] font-semibold mb-[2%] ml-[18%]">Your Cart is Empty🙁</h1>)}
                 {
                     cart.map((items) => {
                         return (

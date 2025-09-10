@@ -1,19 +1,17 @@
-import React from 'react';
 
 const Header = () => {
+  const adminName = localStorage.getItem("adminName");
+  const firstLetter = adminName.charAt(0).toUpperCase();
   return (
-    <header className="flex items-center justify-end p-4 bg-white shadow-sm rounded-lg">
-      <div className="flex items-center space-x-4">
-        <span className="relative">
-          <i className="fa-solid fa-bell text-gray-500"></i>
-          <span className="absolute top-0 right-0 block w-2 h-2 bg-red-500 rounded-full ring-2 ring-white"></span>
-        </span>
+    <header className="flex items-center justify-between p-4 bg-white shadow-sm rounded-lg">
+      <h1 className="text-2xl tracking-widest text-blue-800" id="premiumtext">CBC Cosmetic</h1>
+      <div className="flex items-center items-between space-x-4">
         <div className="flex items-center space-x-2">
           <div className="text-right">
-            <p className="text-sm font-semibold text-gray-800">Sarah Johnson</p>
+            <p className="text-sm font-semibold text-green-800">{adminName}</p>
             <p className="text-xs text-gray-500">Super Admin</p>
           </div>
-          <div className="w-8 h-8 rounded-full bg-gray-300"></div>
+          <div className="w-8 h-8 rounded-full text-center text-[22px] bg-gray-300">{firstLetter}</div>
         </div>
       </div>
     </header>
