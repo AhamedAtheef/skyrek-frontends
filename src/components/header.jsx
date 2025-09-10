@@ -12,6 +12,8 @@ import { MdReviews } from "react-icons/md";
 import { FaShoppingCart } from "react-icons/fa";
 import { CgProfile } from "react-icons/cg";
 import { TbLogout } from "react-icons/tb";
+import { FaBox } from "react-icons/fa";
+
 import { getCart } from "../utils/cart";
 
 export default function Header() {
@@ -69,6 +71,7 @@ export default function Header() {
               <Link to={"/user/reviews"} onClick={() => setSideNav(false)} className="text-[18px] text-[#120c61] flex flex-row items-center gap-[5px]"> <MdReviews /> Reviews</Link>
               <Link to={"/user/contact"} onClick={() => setSideNav(false)} className="text-[18px] text-[#120c61] flex flex-row items-center gap-[5px]"> <IoMdContacts />Contact Us</Link>
               <Link to={"/user/cart"} onClick={() => setSideNav(false)} className="text-[18px] text-[#120c61] flex flex-row items-center gap-[5px]"> <FaShoppingCart />Cart</Link>
+              <Link to={"/user/cart"} onClick={() => setSideNav(false)} className="text-[18px] text-[#120c61] flex flex-row items-center gap-[5px]"> <FaBox /> My Orders</Link>
             </nav>
 
             <div className="w-full h-full flex justify-around mt-[90%] md:mt-[70%] px-[10px] ">
@@ -114,15 +117,19 @@ export default function Header() {
           <Link to={"/user/about"} className="text-[18px] lg:text-[22px] pb-1 border-b-2 border-transparent hover:border-[#f1c03a] hover:text-[#f1c03a] transition-colors duration-300">AboutUs</Link>
           <Link to={"/user/reviews"} className="text-[18px] lg:text-[22px] pb-1 border-b-2 border-transparent hover:border-[#f1c03a] hover:text-[#f1c03a] transition-colors duration-300">Reviews</Link>
           <Link to={"/user/contact"} className="text-[18px] lg:text-[22px] pb-1 border-b-2 border-transparent hover:border-[#f1c03a] hover:text-[#f1c03a] transition-colors duration-300">ContactUs</Link>
+         
         </nav>
 
-        {/* Buttons + Cart (hidden on mobile, visible from sm up) */}
+        {/* Buttons + Cart + orders (hidden on mobile, visible from sm up) */}
         <div className=" hidden lg:flex items-center gap-2 ">
           <Link to="/user/cart " className="relative">
             <div className={`${cart.length === 0 ? "hidden" : "flex"} w-[15px] h-[15px] rounded-full left-[1rem] top-[] bg-[#f1c03a] flex justify-center items-center absolute`}>
               <span className="text-[10px] font-semibold text-black">{cart.length}</span>
             </div>
             <LiaShoppingCartSolid className="text-3xl  text-[#f6f8f8] bg-transparent hover:text-[#f1c03a]" />
+          </Link>
+          <Link to="/user/orders">
+          <FaBox className="text-[20px]  text-[#f6f8f8] bg-transparent hover:text-[#f1c03a]" /> 
           </Link>
           <Link to={"/user/profile"}>
             <CgProfile className="text-2xl  text-[#f6f8f8] bg-transparent hover:text-[#f1c03a]" />

@@ -23,7 +23,7 @@ export default function FakeReviews() {
     setCurrentIndex((prev) => (prev === fakeReviews.length - 1 ? 0 : prev + 1));
 
   return (
-    <div className="w-full bg-[#fff4e0] py-16 px-4 flex flex-col items-center">
+    <div className="w-full cursor-pointer bg-[#fff4e0] py-16 px-4 flex flex-col items-center">
       <h2 className="text-3xl md:text-4xl text-center text-[#f5a731] mb-12 font-bold">
         Customer Reviews
       </h2>
@@ -36,7 +36,7 @@ export default function FakeReviews() {
           style={{ transform: `translateX(-${currentIndex * 100}%)` }}
         >
           {fakeReviews.map((rev, idx) => (
-            <div key={idx} className="w-full flex-shrink-0 px-4">
+            <div key={idx} className="w-full flex-shrink-0 px-4 cursor-pointer">
               <div className="bg-[#121218] text-white p-6 rounded-xl shadow-lg h-[350px] pt-[3rem]">
                 <strong className="text-[#eec58f] text-lg text-center ml-[15rem] md:text-xl">{rev.name}</strong>
                 <p className="text-gray-200 text-md mt-2">{rev.comment}</p>

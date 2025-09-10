@@ -91,7 +91,8 @@ export default function Loginpage() {
             password: password
         }).then((res) => {
             console.log(res.data);
-            localStorage.setItem("token", res.data.token);
+            localStorage.setItem("token", res.data.token, );
+            localStorage.setItem("email", res.data.email);
             setIsLoding(false)
 
             toast.success(res.data.message);
