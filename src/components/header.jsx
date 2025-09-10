@@ -117,9 +117,9 @@ export default function Header() {
         </nav>
 
         {/* Buttons + Cart (hidden on mobile, visible from sm up) */}
-        <div className="hidden lg:flex items-center gap-2 ">
-          <Link to="/user/cart ">
-            <div className={`${cart.length === 0 ? "hidden" : "flex"} w-[15px] h-[15px] rounded-full right-[6.35rem] top-[1.5rem] bg-[#f1c03a] flex justify-center items-center absolute`}>
+        <div className=" hidden lg:flex items-center gap-2 ">
+          <Link to="/user/cart " className="relative">
+            <div className={`${cart.length === 0 ? "hidden" : "flex"} w-[15px] h-[15px] rounded-full left-[1rem] top-[] bg-[#f1c03a] flex justify-center items-center absolute`}>
               <span className="text-[10px] font-semibold text-black">{cart.length}</span>
             </div>
             <LiaShoppingCartSolid className="text-3xl  text-[#f6f8f8] bg-transparent hover:text-[#f1c03a]" />
