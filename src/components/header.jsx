@@ -57,7 +57,7 @@ export default function Header() {
             <div className="w-full h-[70px] flex justify-between px-[5px] pt-[5px] cursor-pointer border-b-2 border-[#120c61] mb-[30px]">
               <span className="text-[#000000] flex items-center gap-[5px]  font-semibold">
                 <CgProfile className="text-3xl text-[#06899b]" />
-                <span className="text-[21px]" onClick={() => navigate("/user/profile")}>Profile</span>
+                <button className="text-[21px]" onClick={() => navigate("/user/profile")}>Profile</button>
               </span>
               <FaXmark
                 className="text-[#000000] text-1xl cursor-pointer"
@@ -71,7 +71,7 @@ export default function Header() {
               <Link to={"/user/reviews"} onClick={() => setSideNav(false)} className="text-[18px] text-[#120c61] flex flex-row items-center gap-[5px]"> <MdReviews /> Reviews</Link>
               <Link to={"/user/contact"} onClick={() => setSideNav(false)} className="text-[18px] text-[#120c61] flex flex-row items-center gap-[5px]"> <IoMdContacts />Contact Us</Link>
               <Link to={"/user/cart"} onClick={() => setSideNav(false)} className="text-[18px] text-[#120c61] flex flex-row items-center gap-[5px]"> <FaShoppingCart />Cart</Link>
-              <Link to={"/user/cart"} onClick={() => setSideNav(false)} className="text-[18px] text-[#120c61] flex flex-row items-center gap-[5px]"> <FaBox /> My Orders</Link>
+              <Link to={"/user/orders"} onClick={() => setSideNav(false)} className="text-[18px] text-[#120c61] flex flex-row items-center gap-[5px]"> <FaBox /> My Orders</Link>
             </nav>
 
             <div className="w-full h-full flex justify-around mt-[90%] md:mt-[70%] px-[10px] ">
