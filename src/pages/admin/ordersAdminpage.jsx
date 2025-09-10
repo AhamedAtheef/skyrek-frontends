@@ -25,6 +25,7 @@ export default function OrdersAdminPage() {
             )
                 .then((res) => {
                     setOrders(res.data.orders);
+                    console.log(res.data.orders);
                     setTotalPages(res.data.totalPages);
                     setLoading(false);
 

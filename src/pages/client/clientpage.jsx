@@ -11,6 +11,7 @@ import Reviews from "./reviewspage";
 import About from "./about";
 import Contact from "./contact";
 import Profile from "./profile";
+import UserOrdersPage from "./orders";
 
 
 export function Clientpage() {
@@ -30,6 +31,7 @@ export function Clientpage() {
                 <Route path="/cart" element={<CartPage/>}/>
                 <Route path="/checkout" element={<CheckOutPage/>}/>
                 <Route path="/reviews" element={<Reviews/>}/>
+                <Route path="/orders" element={<UserOrdersPage/>}/>
                 <Route path="/*" element={<HomeBtn/>} />
             </Routes>
             </div>

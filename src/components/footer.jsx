@@ -4,7 +4,7 @@ export default function Footer() {
   return (
     <footer className="w-full bg-[#121218] text-white py-6 px-4 md:px-12">
       <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
-        
+
         {/* Logo / Text */}
         <div className="text-center md:text-left">
           <h3 className="text-xl 2xl:text-[22px] font-bold text-[#fdb42d]" id="premiumtext">CBC Cosmetics</h3>
@@ -32,13 +32,15 @@ export default function Footer() {
             <FaInstagram />
           </a>
           <a
-            href="https://wa.me/0750943802"
+            href="https://wa.me/94750943802?text=Hello%2C%20I%20want%20to%20inquire%20about%20my%20order"
             target="_blank"
             rel="noopener noreferrer"
+            typeof="button"
             className="w-10 h-10 flex items-center justify-center rounded-full bg-[#fdb42d] text-[#121218] hover:bg-green-500 transition"
           >
             <FaWhatsapp />
           </a>
+
         </div>
       </div>
 
