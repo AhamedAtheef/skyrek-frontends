@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios'; // Import axios
-import Header from '../../components/adminheader';
+import AdminHeader from '../../components/adminheader';
 import EarningsGraph from '../../components/enrininggraph';
 import MetricCard from '../../components/metriccard';
 import PieChartComponent from '../../components/piechart';
@@ -78,7 +78,7 @@ const Dashboard = () => {
 
     return (
         <div className="min-h-screen w-full bg-gray-50 pl-[2rem] p-8">
-            <Header />
+            <AdminHeader />
             <div className="mt-8">
                 <h1 className="text-2xl font-bold text-gray-900">Dashboard Overview</h1>
                 <p className="mt-1 text-gray-500">

@@ -41,12 +41,13 @@ export default function CartPage() {
         <div className="min-w-full min-h-full h-auto flex flex-col pt-[28%] md:pt-[15%] lg:pt-[10%] xl:pt-[8%] pl-[3%] bg-[#f8f8f8]">
             <div className="overflow-y-scroll h-[600px] overflow-hidden flex flex-col gap-[15px] pr-[6rem] lg:ml-[3%]">
                 <h1 className="text-2xl md:text-3xl text-[#52504e] font-semibold mb-[2%] ml-[4%]">Shopping Cart</h1>
+                {cart.length === 0 &&  (<h1 className="text-[18px] md:text-3xl text-center text-[#0e0802] font-semibold mb-[2%] ml-[18%]">Your Cart is Empty🙁</h1>)}
                 {
                     cart.map((items) => {
                         return (
                             <div
                                 key={items.productId}
-                                className="min-w-[100%] max-[325px]:w-[130%] h-[130%] px-1 md:px-0 w-auto md:min-w-[700px]  md:h-[300px] border-b-2  pb-[12px] border-gray-200 ml-[1%] 
+                                className="min-w-[100%] max-[325px]:w-[130%]  px-1 md:px-0 w-auto md:min-w-[700px]  md:h-[200px] border-b-2  pb-[12px] border-gray-200 ml-[1%] 
                                  flex justify-between items-center"
                             >
                                 {/* Left side */}

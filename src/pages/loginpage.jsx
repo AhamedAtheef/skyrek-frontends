@@ -61,6 +61,7 @@ export default function Loginpage() {
     const [number, setNumber] = useState("")
 
     function Register() {
+        setIsLoding(true); // start loader
         axios.post(import.meta.env.VITE_BACKEND_URL + "/api/users", {
             firstName: fname,
             lastName: lname,
@@ -69,23 +70,19 @@ export default function Loginpage() {
             phone: number
         })
             .then((res) => {
-                console.log(res.data)
-                if (res.data.message === "Not Saved") {
-                    toast.error("Failed To Create An Account")
-                    setIsLoding(false)
-                    return
-                }
-                toast.success("Successfully Created An Account")
-                navigate("/")
-                setIsLoding(false)
-
-            }).catch((error) => {
-                console.log(error)
-                toast.error("Can't To Create An Account and Try Again ")
-                setIsLoding(false)
-
+                toast.success(res.data.message);
+                setShowLogin(true);
+                setIsLoding(false);
             })
+            .catch((error) => {
+                console.log(error);
+                const message = error.response?.data?.message || "Something went wrong";
+                toast.error(message);
+                setIsLoding(false);
+                
+            });
     }
+
 
     // Login page
     function login() {
@@ -148,8 +145,8 @@ export default function Loginpage() {
                         <h2 className="text-[16px] min-[420px]:ml-[3.5rem] min-[375px]:ml-[2rem] md:text-[18px] md:ml-[0.5rem] lg:ml-0 lg:text-[20px] text-[#d1d9e9]">Login to your beauty account</h2>
                     </div>
                     <div className="relative">
-                        <div className="absolute left-[1rem] top-[1.25rem]  text-[#1f1919] text-[21px]"><MdOutlineAttachEmail /></div>
-                        <div className="absolute left-[1rem] top-[4.35rem] text-[#030303] text-[21px]"><RiLockPasswordLine /></div>
+                        <div className="absolute left-[1rem] top-[1.25rem] md:top-[2rem]  text-[#1f1919] text-[21px]"><MdOutlineAttachEmail /></div>
+                        <div className="absolute left-[1rem] top-[4.35rem] md:top-[6.5rem] text-[#030303] text-[21px]"><RiLockPasswordLine /></div>
                         <form
                             onSubmit={(e) => { e.preventDefault(); setIsLoding(true); login(); }}
                             className="flex flex-col gap-[10px] md:gap-[35px] pl-[5px] pt-[10px] md:pt-[20px] relative"
@@ -202,7 +199,7 @@ export default function Loginpage() {
                         <button className="text-blue-400 cursor-pointer" onClick={() => setShowLogin(false)}>SignUp</button> from here
                     </span>
 
-                    <span className="mt-[5px] ml-[5.25rem] min-[330px]:ml-[30%] min-[420px]:ml-[32%] text-sm md:text-[17px]  text-[#d7e1f3] lg:text-center">OR Continue With</span>
+                    <span className="mt-[5px] ml-[5.25rem] min-[330px]:ml-[30%] min-[420px]:ml-[32%] md:ml-[6.75rem] lg:ml-0  text-sm md:text-[17px]  text-[#d7e1f3] lg:text-center">OR Continue With</span>
 
                     <div className="flex lg:flex-col mt-[10px] md:items-center lg:mt-[2rem]">
                         <div
