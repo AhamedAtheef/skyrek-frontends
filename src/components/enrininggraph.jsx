@@ -44,7 +44,7 @@ const EarningsGraph = ({ orders }) => {
         <LineChart data={data}>
           <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#E5E7EB" />
           <XAxis dataKey="name" stroke="#9CA3AF" />
-          <YAxis stroke="#9CA3AF" tickFormatter={(value) => `$${value}`} />
+          <YAxis stroke="#9CA3AF" tickFormatter={(value) => `Rs.${value}`} />
           <Tooltip content={<CustomTooltip />} />
           <Line
             type="monotone"
