@@ -23,6 +23,9 @@ export default function Profile() {
     };
 
     useEffect(() => {
+        if (!token) {
+            return window.location.href = "/login";
+        }
         const fetchUser = async () => {
             try {
                 setLoading(true);
@@ -279,8 +282,8 @@ export default function Profile() {
                         <div className="bg-white rounded-xl p-6 max-w-sm w-full text-center shadow-lg space-y-4">
                             <h3 className="text-lg font-bold text-red-600">Confirm Delete</h3>
                             <p>Are you sure you want to delete your account? This action cannot be undone.</p>
-                            <input type="password" className="w-full p-2 border rounded-lg text-black" 
-                            onChange={(e) => setDeletePassword(e.target.value)} placeholder="Enter your password"/>
+                            <input type="password" className="w-full p-2 border rounded-lg text-black"
+                                onChange={(e) => setDeletePassword(e.target.value)} placeholder="Enter your password" />
                             <div className="flex justify-between mt-4 space-x-2">
                                 <button onClick={handleDeleteAccount} className="bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition w-1/2">
                                     Yes, Delete
