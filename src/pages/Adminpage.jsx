@@ -33,6 +33,7 @@ export default function Adminpage() {
                 console.log(res.data.role);
                 if (res.data.role && res.data.role.toLowerCase() === "admin") {
                     setAdminValidate(false);
+                    console.log(res.data.role);
                 } else {
                     toast.error("You are not an admin");
                     navigate("/");

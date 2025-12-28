@@ -21,7 +21,7 @@ export default function EarningsCard() {
       {/* Card Content */}
       <CardContent>
         <div className="space-y-3">
-          <div className="text-2xl font-bold text-gray-800">$245,670</div>
+          <div className="text-2xl font-bold text-gray-800">Rs245,670</div>
 
           <div className="flex items-center gap-2">
             <Badge className="bg-green-100 text-green-700 flex items-center gap-1">

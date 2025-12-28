@@ -111,7 +111,7 @@ export default function Header() {
 
 
         {/* Nav Links (hidden on mobile, show from md) */}
-        <nav className="hidden lg:flex gap-[20px] text-[#fffdfd] font-medium mr-[12rem] xl:mr-[25rem] 2xl:mr-[38rem] 2xl:gap-[30px]">
+        <nav className="hidden lg:flex gap-[20px] text-[#fffdfd] font-medium mr-[7.5rem] xl:mr-[20rem] 2xl:mr-[34rem] 2xl:gap-[32px]">
           <Link to={"/user/home"} className="text-[18px] lg:text-[22px] pb-1 border-b-2 border-transparent hover:border-[#f1c03a] hover:text-[#f1c03a] transition-colors duration-300">Home</Link>
           <Link to={"/user/products"} className="text-[18px] lg:text-[22px] pb-1 border-b-2 border-transparent hover:border-[#f1c03a] hover:text-[#f1c03a] transition-colors duration-300">Products</Link>
           <Link to={"/user/about"} className="text-[18px] lg:text-[22px] pb-1 border-b-2 border-transparent hover:border-[#f1c03a] hover:text-[#f1c03a] transition-colors duration-300">AboutUs</Link>

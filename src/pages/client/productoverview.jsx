@@ -6,6 +6,8 @@ import BarLoader from "../../components/homeloading"
 import ImageSlider from "../../components/imageslider"
 import { addCart, getCart } from "../../utils/cart";
 import CategorieCard from "../../components/categories"
+import RelatedProductsSkeleton from "../../components/catagoryskeleton"
+import ProductOverviewSkeleton from "../../components/ProductOverviewSkeleton"
 
 export default function ProductOverview() {
     const [product, setProduct] = useState(null);
@@ -55,7 +57,7 @@ export default function ProductOverview() {
         <div className="w-full md:ml-[10px] lg:ml-[12px] xl:ml-0 h-auto bg-[#f8eee3ea] flex flex-col items-center ">
 
             {/* Loading */}
-            {status == "loading" && <BarLoader />}
+            {status == "loading" && <ProductOverviewSkeleton />}
 
             {/* Success */}
             {status == "success" && (
@@ -132,7 +134,7 @@ export default function ProductOverview() {
             <h1 className="text-3xl font-bold mt-[50px] lg:mt-[20px] mb-[5px] tracking-wide text-[#332929] text-center md:text-3xl lg:text-4xl " id="premiumtext">Related Products</h1>
             {/* Categories */}
             {loading ? (
-                <BarLoader />
+                <RelatedProductsSkeleton/>
             ) : (
                 <div
                     className="w-full h-full flex bg-[#f8eee3ea] flex-wrap justify-start items-start 
