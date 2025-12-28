@@ -2,10 +2,10 @@ import { useState } from "react";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 
 const fakeReviews = [
-  { name: "Sophia Lee", email: "sophia@example.com", rating: 5, comment: "Absolutely love CBC Cosmetics! My skin has never looked better." },
-  { name: "Emma Johnson", email: "emma.johnson@example.com", rating: 4, comment: "Great products and amazing customer service!" },
-  { name: "Olivia Brown", email: "olivia.brown@example.com", rating: 5, comment: "High-quality makeup and skincare. Totally recommend!" },
-  { name: "Mia Williams", email: "mia.williams@example.com", rating: 5, comment: "Beautiful packaging and outstanding formulas!" },
+  { name: "Sophia Lee", email: "sophia@gmail.com", rating: 5, comment: "Absolutely love CBC Cosmetics! My skin has never looked better." },
+  { name: "Emma Johnson", email: "emma.johnson@gmail.com", rating: 4, comment: "Great products and amazing customer service!" },
+  { name: "Olivia Brown", email: "olivia.brown@gmail.com", rating: 5, comment: "High-quality makeup and skincare. Totally recommend!" },
+  { name: "Mia Williams", email: "mia.williams@gmail.com", rating: 5, comment: "Beautiful packaging and outstanding formulas!" },
 ];
 
 export default function FakeReviews() {

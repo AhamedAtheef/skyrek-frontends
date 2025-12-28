@@ -5,6 +5,7 @@ import { useNavigate, useParams } from "react-router-dom"
 import BarLoader from "../../components/homeloading"
 import ImageSlider from "../../components/imageslider"
 import { addCart, getCart } from "../../utils/cart";
+import ProductOverviewSkeleton from "../../components/ProductOverviewSkeleton"
 export default function CatagorieOverview() {
     const [product, setProduct] = useState(null);
     const navigate = useNavigate();
@@ -31,7 +32,7 @@ export default function CatagorieOverview() {
         <div className="w-full md:ml-[10px] lg:ml-[12px] xl:ml-0 min-h-full bg-[#eee6e6] flex flex-col items-center " >
 
             {/* Loading */}
-            {status == "loading" && <BarLoader />}
+            {status == "loading" && <ProductOverviewSkeleton />}
 
             {/* Success */}
             {status == "success" && (

@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import BarLoader from "../../components/homeloading";
 import ProductCard from "../../components/productcard";
 import { IoIosSearch } from "react-icons/io";
+import ProductSkeletonGrid from "../../components/productskeletongrid";
 
 
 export default function ProductPage() {
@@ -39,7 +40,7 @@ export default function ProductPage() {
         </div>
       </div>
       {
-        loading ? (<BarLoader />) : (
+        loading ? (<ProductSkeletonGrid/>) : (
           <div
             className="w-full h-full flex flex-wrap justify-start items-start 
       gap-10 px-[80px] pt-[40px] pb-[40px]
